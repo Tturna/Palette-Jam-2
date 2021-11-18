@@ -14,6 +14,20 @@ public class FollowBehaviour : StateMachineBehaviour
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if(ValueManager.instance != null)
+        {
+            if(ValueManager.instance.debuggable)
+            {
+                if(ValueManager.instance.valueManager.activeInHierarchy == true)
+                {
+                    if(!string.IsNullOrEmpty(ValueManager.instance.enemySpeed.text))
+                    {
+                        speed = int.Parse(ValueManager.instance.enemySpeed.text);
+                    }
+                }
+            }
+        }
+
         animator.transform.position = Vector2.MoveTowards(animator.transform.position, playerPos.position, speed * Time.deltaTime);
 
         if(Input.GetKeyDown(KeyCode.Space))

@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float speed;
+    public float sprintSpeed;
     float moveSpeed;
     public Rigidbody2D rb;
     Vector2 movement;
@@ -31,6 +32,35 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(ValueManager.instance != null)
+        {
+            if(ValueManager.instance.debuggable)
+            {
+                if(ValueManager.instance.valueManager.activeInHierarchy == true)
+                {
+                    if(!string.IsNullOrEmpty(ValueManager.instance.playerSpeed.text))
+                    {
+                        speed = int.Parse(ValueManager.instance.playerSpeed.text);
+                    }
+
+                    if(!string.IsNullOrEmpty(ValueManager.instance.playerSprintSpeed.text))
+                    {
+                        sprintSpeed = int.Parse(ValueManager.instance.playerSprintSpeed.text);
+                    }
+
+                    if(!string.IsNullOrEmpty(ValueManager.instance.cameraAheadAmount.text))
+                    {
+                        aheadAmount = int.Parse(ValueManager.instance.cameraAheadAmount.text);
+                    }
+
+                    if(!string.IsNullOrEmpty(ValueManager.instance.cameraAheadSpeed.text))
+                    {
+                        aheadSpeed = int.Parse(ValueManager.instance.cameraAheadSpeed.text);
+                    }
+                }
+            }
+        }
+
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movement = moveInput.normalized * moveSpeed;
 
@@ -58,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
-            moveSpeed = moveSpeed + 2f;
+            moveSpeed = sprintSpeed;
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
