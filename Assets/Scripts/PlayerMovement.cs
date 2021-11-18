@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement")]
     public float speed;
     float moveSpeed;
     public Rigidbody2D rb;
     Vector2 movement;
-    public Animator animator;
     private bool isFacingRight;
+
+    [Header("Animation")]
+    public Animator animator;
+
+    [Header("Camera")]
+    public Transform camTarget;
+    public float aheadAmount;
+    public float aheadSpeed;
+    
 
     void Start()
     {
@@ -38,10 +47,11 @@ public class PlayerMovement : MonoBehaviour
 
         if(isFacingRight)
         {
-            transform.localScale = new Vector3(1.5f,1.5f,1.5f);
-        }else
+            GetComponentInChildren<SpriteRenderer>().flipX = false;
+        }
+        if(!isFacingRight)
         {
-            transform.localScale = new Vector3(-1.5f,1.5f,1.5f);
+            GetComponentInChildren<SpriteRenderer>().flipX = true;
         }
 
         if(Input.GetKeyDown(KeyCode.LeftShift))
@@ -51,6 +61,11 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
             moveSpeed = speed;
+        }
+
+        if(Input.GetAxisRaw("Horizontal") != 0)
+        {
+            camTarget.localPosition = new Vector3(Mathf.Lerp(camTarget.localPosition.x, aheadAmount * Input.GetAxisRaw("Horizontal"), aheadSpeed * Time.deltaTime), Mathf.Lerp(camTarget.localPosition.y, aheadAmount * Input.GetAxisRaw("Vertical"), aheadSpeed * Time.deltaTime), camTarget.localPosition.z);
         }
     }
 
