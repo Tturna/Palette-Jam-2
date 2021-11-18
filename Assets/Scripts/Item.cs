@@ -7,12 +7,23 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D))]
 public class Item : MonoBehaviour
 {
+    // General
     [SerializeField] float pickUpRange;
     [SerializeField] float flightTime;
     [SerializeField] float flightSpeed;
     [SerializeField] float verticalMultiplier;
     [SerializeField] AnimationCurve verticalDeltaVelocity;
     CircleCollider2D col;
+
+    // Event
+    public delegate void OnItemLandHandler();
+    public event OnItemLandHandler OnItemLand;
+
+    // Event trigger
+    protected virtual void TriggerOnItemLand()
+    {
+        OnItemLand?.Invoke();
+    }
 
     void Start()
     {
@@ -57,6 +68,7 @@ public class Item : MonoBehaviour
 
     void Deth()
     {
+        TriggerOnItemLand();
         Destroy(gameObject);
     }
 
