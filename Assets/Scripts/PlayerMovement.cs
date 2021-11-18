@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     Vector2 movement;
     private bool isFacingRight;
+    private SpriteRenderer playerSprite;
 
     [Header("Animation")]
     public Animator animator;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         moveSpeed = speed;
+        playerSprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -47,11 +49,11 @@ public class PlayerMovement : MonoBehaviour
 
         if(isFacingRight)
         {
-            GetComponentInChildren<SpriteRenderer>().flipX = false;
+            playerSprite.flipX = false;
         }
         if(!isFacingRight)
         {
-            GetComponentInChildren<SpriteRenderer>().flipX = true;
+            playerSprite.flipX = true;
         }
 
         if(Input.GetKeyDown(KeyCode.LeftShift))
