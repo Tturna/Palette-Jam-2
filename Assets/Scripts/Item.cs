@@ -30,6 +30,16 @@ public class Item : MonoBehaviour
         col = GetComponent<CircleCollider2D>();
         col.isTrigger = true;
         col.radius = pickUpRange;
+
+        if(ValueManager.instance != null)
+        {
+            if(ValueManager.instance.debuggable)
+            {
+                ValueManager.instance.pickupRange.text = pickUpRange.ToString();
+                ValueManager.instance.flightTime.text = flightTime.ToString();
+                ValueManager.instance.flightSpeed.text = flightSpeed.ToString();
+            }
+        }
     }
 
     void Update()

@@ -28,6 +28,17 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         moveSpeed = speed;
         playerSprite = GetComponentInChildren<SpriteRenderer>();
+        
+        if(ValueManager.instance != null)
+        {
+            if(ValueManager.instance.debuggable)
+            {
+                ValueManager.instance.playerSpeed.text = speed.ToString();
+                ValueManager.instance.playerSprintSpeed.text = sprintSpeed.ToString();
+                ValueManager.instance.cameraAheadAmount.text = aheadAmount.ToString();
+                ValueManager.instance.cameraAheadSpeed.text = aheadSpeed.ToString();
+            }
+        }
     }
 
     void Update()

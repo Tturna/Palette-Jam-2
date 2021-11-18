@@ -10,6 +10,13 @@ public class FollowBehaviour : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        if(ValueManager.instance != null)
+        {
+            if(ValueManager.instance.debuggable)
+            {
+                ValueManager.instance.enemySpeed.text = speed.ToString();
+            }
+        }
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
