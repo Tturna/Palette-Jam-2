@@ -21,6 +21,34 @@ public class Item : MonoBehaviour
         col.radius = pickUpRange;
     }
 
+    void Update()
+    {
+        //Debugging Stuff
+        if(ValueManager.instance != null)
+        {
+            if(ValueManager.instance.debuggable)
+            {
+                if(ValueManager.instance.valueManager.activeInHierarchy == true)
+                {
+                    if(!string.IsNullOrEmpty(ValueManager.instance.pickupRange.text))
+                    {
+                        pickUpRange = int.Parse(ValueManager.instance.pickupRange.text);
+                    }
+
+                    if(!string.IsNullOrEmpty(ValueManager.instance.flightTime.text))
+                    {
+                        flightTime = int.Parse(ValueManager.instance.flightTime.text);
+                    }
+
+                    if(!string.IsNullOrEmpty(ValueManager.instance.flightSpeed.text))
+                    {
+                        flightSpeed = int.Parse(ValueManager.instance.flightSpeed.text);
+                    }
+                }
+            }
+        }
+    }
+
     public void Yeet(Vector2 yeetDirection)
     {
         // Add a rigidbody and a collider so it can detect collisions
@@ -48,6 +76,7 @@ public class Item : MonoBehaviour
             Vector2 u = Vector2.up * verticalMultiplier * verticalDeltaVelocity.Evaluate(t / duration) * Time.deltaTime;
             transform.Translate(u);
             Debug.Log(u);
+            Debug.DrawRay(transform.position, u);
 
             yield return new WaitForEndOfFrame();
         }
