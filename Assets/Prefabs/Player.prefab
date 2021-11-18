@@ -211,8 +211,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   animator: {fileID: 0}
   camTarget: {fileID: 1428630456}
-  aheadAmount: 2
-  aheadSpeed: 1
+  aheadAmount: 1
+  aheadSpeed: 0.5
 --- !u!95 &1932821226
 Animator:
   serializedVersion: 3

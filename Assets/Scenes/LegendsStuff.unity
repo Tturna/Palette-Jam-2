@@ -297,14 +297,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3450404520800462125, guid: 41059e66ce0d84e4f8e373068273bfb0, type: 3}
-      propertyPath: aheadSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3450404520800462125, guid: 41059e66ce0d84e4f8e373068273bfb0, type: 3}
-      propertyPath: aheadAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3450404520800462126, guid: 41059e66ce0d84e4f8e373068273bfb0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -322,6 +314,7 @@ GameObject:
   - component: {fileID: 3450404519019228018}
   - component: {fileID: 3450404519019228020}
   - component: {fileID: 84479156}
+  - component: {fileID: 3450404519019228017}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -329,6 +322,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &3450404519019228017
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3450404519019228016}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.056101143, y: -0.1569921}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1.4375}
+    newSize: {x: 1, y: 1.4375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.6556555, y: 1.0209324}
+  m_EdgeRadius: 0
 --- !u!4 &3450404519019228018
 Transform:
   m_ObjectHideFlags: 0
@@ -375,7 +394,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3450404520237978446}
   - component: {fileID: 3450404520237978445}
-  - component: {fileID: 3450404520237978447}
   m_Layer: 0
   m_Name: ManagerSprite
   m_TagString: Untagged
@@ -448,29 +466,3 @@ Transform:
   m_Father: {fileID: 3450404519019228018}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &3450404520237978447
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3450404520237978444}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.056101143, y: -0.1569921}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.4375}
-    newSize: {x: 1, y: 1.4375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6556555, y: 1.0209324}
-  m_EdgeRadius: 0
