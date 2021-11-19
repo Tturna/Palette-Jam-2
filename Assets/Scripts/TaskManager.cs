@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 class Task
 {
-
+    public string name;
 }
 
 public class TaskManager : MonoBehaviour
@@ -15,7 +15,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] int tasksInGame;
 
     // List of all possible tasks
-    List<Task> allTasks = new List<Task>();
+    [SerializeField] List<Task> allTasks = new List<Task>();
 
     // List of tasks to use for this game
     List<Task> tasks = new List<Task>();
