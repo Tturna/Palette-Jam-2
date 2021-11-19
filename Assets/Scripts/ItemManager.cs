@@ -20,7 +20,7 @@ public class ItemManager : MonoBehaviour
     private void Update()
     {
         // Get input
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             if (isCarrying) ThrowItem(); else PickUpItem();
         }

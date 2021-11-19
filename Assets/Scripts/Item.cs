@@ -30,44 +30,6 @@ public class Item : MonoBehaviour
         col = GetComponent<CircleCollider2D>();
         col.isTrigger = true;
         col.radius = pickUpRange;
-
-        if(ValueManager.instance != null)
-        {
-            if(ValueManager.instance.debuggable)
-            {
-                ValueManager.instance.pickupRange.text = pickUpRange.ToString();
-                ValueManager.instance.flightTime.text = flightTime.ToString();
-                ValueManager.instance.flightSpeed.text = flightSpeed.ToString();
-            }
-        }
-    }
-
-    void Update()
-    {
-        //Debugging Stuff
-        if(ValueManager.instance != null)
-        {
-            if(ValueManager.instance.debuggable)
-            {
-                if(ValueManager.instance.valueManager.activeInHierarchy == true)
-                {
-                    if(!string.IsNullOrEmpty(ValueManager.instance.pickupRange.text))
-                    {
-                        pickUpRange = int.Parse(ValueManager.instance.pickupRange.text);
-                    }
-
-                    if(!string.IsNullOrEmpty(ValueManager.instance.flightTime.text))
-                    {
-                        flightTime = int.Parse(ValueManager.instance.flightTime.text);
-                    }
-
-                    if(!string.IsNullOrEmpty(ValueManager.instance.flightSpeed.text))
-                    {
-                        flightSpeed = int.Parse(ValueManager.instance.flightSpeed.text);
-                    }
-                }
-            }
-        }
     }
 
     public void Yeet(Vector2 yeetDirection)
@@ -96,8 +58,7 @@ public class Item : MonoBehaviour
             Debug.Log(verticalDeltaVelocity.Evaluate(t / duration));
             Vector2 u = Vector2.up * verticalMultiplier * verticalDeltaVelocity.Evaluate(t / duration) * Time.deltaTime;
             transform.Translate(u);
-            Debug.Log(u);
-            Debug.DrawRay(transform.position, u);
+            Debug.DrawLine(transform.position, u);
 
             yield return new WaitForEndOfFrame();
         }
