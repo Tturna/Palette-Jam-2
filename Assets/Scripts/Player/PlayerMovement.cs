@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 movement;
     private bool isFacingRight;
     private SpriteRenderer playerSprite;
+    bool isSprinting;
 
     [Header("Animation")]
     public Animator animator;
@@ -35,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movement = moveInput.normalized * moveSpeed;
 
-        animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Speed", moveInput.sqrMagnitude);
 
         if(moveInput.x > 0)
@@ -69,6 +69,14 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetAxisRaw("Horizontal") != 0)
         {
             camTarget.localPosition = new Vector3(Mathf.Lerp(camTarget.localPosition.x, aheadAmount * Input.GetAxisRaw("Horizontal"), aheadSpeed * Time.deltaTime), Mathf.Lerp(camTarget.localPosition.y, aheadAmount * Input.GetAxisRaw("Vertical"), aheadSpeed * Time.deltaTime), camTarget.localPosition.z);
+        }
+
+        if(ItemManager.instance.isCarrying)
+        {
+            animator.SetBool("isHolding", true);
+        }else
+        {
+            animator.SetBool("isHolding", false);
         }
     }
 

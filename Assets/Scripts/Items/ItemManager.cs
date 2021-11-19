@@ -15,12 +15,20 @@ public class ItemManager : MonoBehaviour
     GameObject carriedItem;
     [SerializeField] Vector2 mouseDir;
 
-    bool isCarrying;
+    public static ItemManager instance;
+
+    [HideInInspector]
+    public bool isCarrying;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     private void Update()
     {
         // Get input
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Space))
         {
             if (isCarrying) ThrowItem(); else PickUpItem();
         }
