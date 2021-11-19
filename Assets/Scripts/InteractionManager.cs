@@ -30,6 +30,7 @@ public class InteractionManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Interactable"))
         {
             nearObjects.Add(collision.gameObject);
+            Debug.Log(collision.gameObject.name);
         }
     }
 
