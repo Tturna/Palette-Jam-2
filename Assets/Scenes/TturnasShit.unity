@@ -925,6 +925,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tasksOnScreen: 0
   tasksInGame: 0
+  allTasks:
+  - name: rule1
 --- !u!4 &1868647085
 Transform:
   m_ObjectHideFlags: 0
