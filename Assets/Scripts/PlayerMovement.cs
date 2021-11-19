@@ -28,50 +28,10 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         moveSpeed = speed;
         playerSprite = GetComponentInChildren<SpriteRenderer>();
-        
-        if(ValueManager.instance != null)
-        {
-            if(ValueManager.instance.debuggable)
-            {
-                ValueManager.instance.playerSpeed.text = speed.ToString();
-                ValueManager.instance.playerSprintSpeed.text = sprintSpeed.ToString();
-                ValueManager.instance.cameraAheadAmount.text = aheadAmount.ToString();
-                ValueManager.instance.cameraAheadSpeed.text = aheadSpeed.ToString();
-            }
-        }
     }
 
     void Update()
     {
-        if(ValueManager.instance != null)
-        {
-            if(ValueManager.instance.debuggable)
-            {
-                if(ValueManager.instance.valueManager.activeInHierarchy == true)
-                {
-                    if(!string.IsNullOrEmpty(ValueManager.instance.playerSpeed.text))
-                    {
-                        speed = int.Parse(ValueManager.instance.playerSpeed.text);
-                    }
-
-                    if(!string.IsNullOrEmpty(ValueManager.instance.playerSprintSpeed.text))
-                    {
-                        sprintSpeed = int.Parse(ValueManager.instance.playerSprintSpeed.text);
-                    }
-
-                    if(!string.IsNullOrEmpty(ValueManager.instance.cameraAheadAmount.text))
-                    {
-                        aheadAmount = int.Parse(ValueManager.instance.cameraAheadAmount.text);
-                    }
-
-                    if(!string.IsNullOrEmpty(ValueManager.instance.cameraAheadSpeed.text))
-                    {
-                        aheadSpeed = int.Parse(ValueManager.instance.cameraAheadSpeed.text);
-                    }
-                }
-            }
-        }
-
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movement = moveInput.normalized * moveSpeed;
 
