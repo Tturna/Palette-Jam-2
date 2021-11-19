@@ -8,6 +8,9 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     // General
+    public enum ItemType { General, Drink, Food }
+
+    public ItemType itemType;
     [SerializeField] float pickUpRange;
     [SerializeField] float flightTime;
     [SerializeField] float flightSpeed;

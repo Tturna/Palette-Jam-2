@@ -69,6 +69,24 @@ public class TaskManager : MonoBehaviour
 
     void OnItemLand(GameObject item, Vector2 pos)
     {
+        if ((pos - (Vector2)GameObject.Find("point_programmers").transform.position).magnitude < 3)
+        {
+            // Don't feed the programmers done
+            Debug.Log("Don't feed the programmers done");
+        }
+        else if ((pos - (Vector2)GameObject.Find("point_whiteboard").transform.position).magnitude < 3)
+        {
+            // Don't mess up the whiteboard done
+        }
+        else if ((pos - (Vector2)GameObject.Find("point_trashcan").transform.position).magnitude < 3)
+        {
+            // Don't litter done
+        }
+        else if (item.GetComponent<Item>().itemType == Item.ItemType.Drink)
+        {
+            // Don't spill drinks in the office done
+        }
+
         Debug.Log("Item landed");
     }
 
