@@ -4,12 +4,12 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    public delegate void OnInteractHandler();
+    public delegate void OnInteractHandler(GameObject target);
     public event OnInteractHandler OnInteract;
 
-    public virtual void TriggerOnInteract()
+    public virtual void TriggerOnInteract(GameObject target)
     {
-        OnInteract?.Invoke();
+        OnInteract?.Invoke(target);
     }
 
     public abstract void Activate();

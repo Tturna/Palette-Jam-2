@@ -67,12 +67,12 @@ public class TaskManager : MonoBehaviour
 
     }
 
-    void OnItemLand()
+    void OnItemLand(GameObject item, Vector2 pos)
     {
         Debug.Log("Item landed");
     }
 
-    void OnInteract()
+    void OnInteract(GameObject target)
     {
         Debug.Log("Interact");
     }
