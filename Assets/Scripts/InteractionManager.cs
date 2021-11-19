@@ -1,18 +1,44 @@
+// This script handles player interactions with interactable objects that can not be picked up
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] List<GameObject> nearObjects = new List<GameObject>();
 
-    // Update is called once per frame
     void Update()
     {
-        
+        // Get input
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Interact();
+        }
+    }
+
+    void Interact()
+    {
+        if (nearObjects.Count == 0) return;
+
+        nearObjects[nearObjects.Count - 1].GetComponent<Interactable>().Activate();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Check if the player enters an interactable object's interaction area
+        if (collision.gameObject.CompareTag("Interactable"))
+        {
+            nearObjects.Add(collision.gameObject);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // Check if the player exits an interactable object's interaction area
+        if (collision.gameObject.CompareTag("Interactable"))
+        {
+            nearObjects.Remove(collision.gameObject);
+        }
     }
 }

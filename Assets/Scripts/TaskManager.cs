@@ -30,10 +30,16 @@ public class TaskManager : MonoBehaviour
 
         // Subscribe to events
         Item[] items = FindObjectsOfType<Item>();
+        Interactable[] inter = FindObjectsOfType<Interactable>();
 
         for (int i = 0; i < items.Length; i++)
         {
             items[i].OnItemLand += OnItemLand;
+        }
+
+        for (int i = 0; i < inter.Length; i++)
+        {
+            inter[i].OnInteract += OnInteract;
         }
     }
 
@@ -63,6 +69,11 @@ public class TaskManager : MonoBehaviour
 
     void OnItemLand()
     {
+        Debug.Log("Item landed");
+    }
 
+    void OnInteract()
+    {
+        Debug.Log("Interact");
     }
 }
