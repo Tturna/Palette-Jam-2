@@ -8,6 +8,9 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     // General
+    public enum ItemType { General, Drink, Food }
+
+    public ItemType itemType;
     [SerializeField] float pickUpRange;
     [SerializeField] float flightTime;
     [SerializeField] float flightSpeed;
@@ -16,13 +19,13 @@ public class Item : MonoBehaviour
     CircleCollider2D col;
 
     // Event
-    public delegate void OnItemLandHandler();
+    public delegate void OnItemLandHandler(GameObject item, Vector2 landPosition);
     public event OnItemLandHandler OnItemLand;
 
     // Event trigger
-    protected virtual void TriggerOnItemLand()
+    protected virtual void TriggerOnItemLand(GameObject item, Vector2 landPosition)
     {
-        OnItemLand?.Invoke();
+        OnItemLand?.Invoke(item, landPosition);
     }
 
     void Start()
@@ -68,7 +71,7 @@ public class Item : MonoBehaviour
 
     void Deth()
     {
-        TriggerOnItemLand();
+        TriggerOnItemLand(gameObject, transform.position);
         Destroy(gameObject);
     }
 
