@@ -78,26 +78,33 @@ public class TaskManager : MonoBehaviour
 
     void OnItemLand(GameObject item, Vector2 pos)
     {
-        if (item.GetComponent<Item>().itemType == Item.ItemType.Food && (pos - (Vector2)GameObject.Find("point_programmers").transform.position).magnitude < 3)
+        try
         {
-            // Don't feed the programmers done
-            Debug.Log("Don't feed the programmers done");
+            if (item.GetComponent<Item>().itemType == Item.ItemType.Food && (pos - (Vector2)GameObject.Find("point_programmers").transform.position).magnitude < 3)
+            {
+                // Don't feed the programmers done
+                Debug.Log("Don't feed the programmers done");
+            }
+            else if (item.GetComponent<Item>().itemType == Item.ItemType.Marker && (pos - (Vector2)GameObject.Find("point_whiteboard").transform.position).magnitude < 3)
+            {
+                // Don't mess up the whiteboard done
+            }
+            else if ((pos - (Vector2)GameObject.Find("point_trashcan").transform.position).magnitude < 3)
+            {
+                // Don't litter done
+            }
+            else if ((pos - (Vector2)GameObject.Find("point_employees").transform.position).magnitude < 3)
+            {
+                // Don't annoy other employees done
+            }
+            else if (item.GetComponent<Item>().itemType == Item.ItemType.Drink)
+            {
+                // Don't spill drinks in the office done
+            }
         }
-        else if (item.GetComponent<Item>().itemType == Item.ItemType.Marker && (pos - (Vector2)GameObject.Find("point_whiteboard").transform.position).magnitude < 3)
+        catch
         {
-            // Don't mess up the whiteboard done
-        }
-        else if ((pos - (Vector2)GameObject.Find("point_trashcan").transform.position).magnitude < 3)
-        {
-            // Don't litter done
-        }
-        else if ((pos - (Vector2)GameObject.Find("point_employees").transform.position).magnitude < 3)
-        {
-            // Don't annoy other employees done
-        }
-        else if (item.GetComponent<Item>().itemType == Item.ItemType.Drink)
-        {
-            // Don't spill drinks in the office done
+            Debug.LogWarning("Some task points are probably missing. Assume incorrect behavior.");
         }
     }
 
@@ -130,6 +137,10 @@ public class TaskManager : MonoBehaviour
         else if (target.GetComponent<Interactable>().name == "Router")
         {
             // Don't touch the Wi-Fi router done
+        }
+        else if (target.GetComponent<Interactable>().name == "TheSandwich")
+        {
+            // Don't eat the sandwich done
         }
 
         Debug.Log("Interact");
