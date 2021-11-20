@@ -456,10 +456,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e338d6d597f5043b9a812485f3583e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tasksOnScreen: 0
-  tasksInGame: 0
-  allTasks:
-  - name: rule1
+  endPoint: {fileID: 0}
+  endScreen: {fileID: 0}
+  tasks: []
 --- !u!4 &182104008
 Transform:
   m_ObjectHideFlags: 0
@@ -623,7 +622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -443.11197, y: -306}
+  m_AnchoredPosition: {x: -306.74, y: -304}
   m_SizeDelta: {x: -658.2072, y: -656.0825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &219585508
@@ -2286,7 +2285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &992816730
 RectTransform:
   m_ObjectHideFlags: 0
