@@ -21,8 +21,15 @@ public class PlayerMovement : MonoBehaviour
     public Transform camTarget;
     public float aheadAmount;
     public float aheadSpeed;
-    
 
+    [Header("Attack")]
+    public float startTimeBtwAttack;
+    private float timeBtwAttack;
+    public Transform attackPos;
+    public float attackRange;
+    public LayerMask Enemies;
+    private EnemyAI enemy;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -78,10 +85,35 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("isHolding", false);
         }
+
+        if(timeBtwAttack <= 0)
+        {
+            if(Input.GetKey(KeyCode.Space))
+            {
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange,Enemies);
+
+                for (int i = 0; i < enemiesToDamage.Length; i++)
+                {
+                    enemy = enemiesToDamage[i].GetComponent<EnemyAI>();
+                    StartCoroutine(enemy.Stun());
+                }
+            }
+
+            timeBtwAttack = startTimeBtwAttack;
+        }else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);      
+    }
+    
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
 }
