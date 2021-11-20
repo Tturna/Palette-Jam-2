@@ -112,10 +112,17 @@ TextureImporter:
       name: laptop_0
       rect:
         serializedVersion: 2
+<<<<<<< HEAD
         x: 0
         y: 12
         width: 12
         height: 12
+=======
+        x: 1
+        y: 12
+        width: 10
+        height: 11
+>>>>>>> 207396b23121e71c1dca5b08dcf942892cf539ea
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,10 +140,17 @@ TextureImporter:
       name: laptop_1
       rect:
         serializedVersion: 2
+<<<<<<< HEAD
         x: 0
         y: 0
         width: 12
         height: 12
+=======
+        x: 1
+        y: 0
+        width: 10
+        height: 11
+>>>>>>> 207396b23121e71c1dca5b08dcf942892cf539ea
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

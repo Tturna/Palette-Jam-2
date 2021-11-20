@@ -84,7 +84,7 @@ public class Item : MonoBehaviour
         Deth();
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, pickUpRange);
     }

@@ -16,8 +16,15 @@ public class EnemyAI : MonoBehaviour
     
     Seeker seeker;
     Rigidbody2D rb;
+    public bool canMove;
 
     public Transform enemySprite;
+    public float stunTime;
+    bool isBeingStunned;
+
+    public Animator anim;
+    Vector2 force;
+    Vector2 direction;
 
     void Start()
     {
@@ -29,7 +36,7 @@ public class EnemyAI : MonoBehaviour
 
     void UpdatePath()
     {
-        if(seeker.IsDone())
+        if(seeker.IsDone() && canMove)
         {
             seeker.StartPath(rb.position, target.position, OnPathComplete);
         }
@@ -60,8 +67,8 @@ public class EnemyAI : MonoBehaviour
             reachedEndOfPath = false;
         }
 
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+        force = direction * speed * Time.deltaTime;
 
         rb.AddForce(force);
 
@@ -78,6 +85,41 @@ public class EnemyAI : MonoBehaviour
         }else if(force.x <= -0.01f)
         {
             enemySprite.localScale = new Vector3(-1.5f, 1.5f, 1.5f);
+        }
+    }
+
+    void Update()
+    {
+        anim.SetFloat("Speed", force.sqrMagnitude);
+
+        if(isBeingStunned)
+        {
+            anim.SetBool("Stunned", true);
+        }else
+        {
+            anim.SetBool("Stunned", false);
+        }
+    }
+
+    public IEnumerator Stun()
+    {
+        canMove = false;
+        isBeingStunned = true;
+        yield return new WaitForSeconds(stunTime);
+        canMove = true;
+        isBeingStunned = false;
+    }
+
+    public void StunEnemy()
+    {
+        StartCoroutine(Stun());
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Pickup")
+        {
+            StunEnemy();
         }
     }
 }
