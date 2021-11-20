@@ -312,7 +312,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &76177271
 GameObject:
@@ -427,52 +427,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &182104006
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 182104008}
-  - component: {fileID: 182104007}
-  m_Layer: 0
-  m_Name: TaskManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &182104007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182104006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3e338d6d597f5043b9a812485f3583e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endPoint: {fileID: 0}
-  endScreen: {fileID: 0}
-  tasks: []
---- !u!4 &182104008
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 182104006}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &219230661
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,6 +1350,71 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6588553, y: 0.92601675}
   m_EdgeRadius: 0
+--- !u!1 &569356350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 569356352}
+  - component: {fileID: 569356351}
+  m_Layer: 0
+  m_Name: TaskManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &569356351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569356350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e338d6d597f5043b9a812485f3583e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endPoint: {fileID: 0}
+  endScreen: {fileID: 0}
+  tasks:
+  - name: Don't feed the programmers
+  - name: Don't bring animals into the office
+  - name: Don't eat the sandwich
+  - name: Don't spill drinks in the office
+  - name: Don't leave the fridge door open
+  - name: Don't run in the office
+  - name: Don't annoy other employees
+  - name: Don't play loud music
+  - name: Use the printer sparingly
+  - name: Don't leave the tap running
+  - name: Don't mess with the elevator
+  - name: Don't litter
+  - name: Don't touch the TV
+  - name: Don't touch the Wi-Fi router
+  - name: Don't steal people's stuff
+  - name: Don't mess up the whiteboard
+  currentTask:
+    name: 
+  tasksDone: 0
+--- !u!4 &569356352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569356350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &612896109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1855,7 +1874,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &790507684
 GameObject:
@@ -2618,6 +2637,7 @@ GameObject:
   - component: {fileID: 1094347436}
   - component: {fileID: 1094347435}
   - component: {fileID: 1094347439}
+  - component: {fileID: 1094347440}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2700,7 +2720,7 @@ RectTransform:
   - {fileID: 219585507}
   - {fileID: 1166284732}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2726,6 +2746,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1094347440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094347434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae6b39ffcff739439922ad597ab3f7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tasksDoneCounter: {fileID: 1493932033}
+  currentRuleText: {fileID: 2106179259}
+  tasksDone: 0
+  taskManager: {fileID: 0}
 --- !u!1 &1129007356
 GameObject:
   m_ObjectHideFlags: 0
@@ -9801,7 +9837,7 @@ GameObject:
   - component: {fileID: 1166284734}
   - component: {fileID: 1166284733}
   m_Layer: 5
-  m_Name: The Current Task Done (1)
+  m_Name: TaskCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9990,7 +10026,7 @@ Transform:
   - {fileID: 1143176303}
   - {fileID: 1913070146}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1221931031 stripped
 Transform:
@@ -10427,7 +10463,7 @@ Transform:
   - {fileID: 1706387870}
   - {fileID: 1817741602}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1466007065
 Animator:
@@ -10861,7 +10897,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1583494637
 GameObject:
