@@ -10,6 +10,7 @@ public class SetVolume : MonoBehaviour
     public Slider slider;
     public string mixerExposedVolName;
     public bool music;
+    public Text percentageText;
 
     void Start()
     {
@@ -46,6 +47,8 @@ public class SetVolume : MonoBehaviour
         }else
         {
             PlayerPrefs.SetFloat("SFXVolume", sliderValue);
-        }        
+        }
+
+        percentageText.text = Mathf.RoundToInt(sliderValue * 100) + "%";        
     }
 }
