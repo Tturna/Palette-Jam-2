@@ -6,7 +6,18 @@ public class SfxManager : MonoBehaviour
 {
     public AudioSource Audio;
 
-    public AudioClip[] AudioClips;
+    [Header("Manager Voicelines")]
+    public List<AudioClip> ManagerCatchingPlayer;
+    public List<AudioClip> ManagerChasingPlayer;
+
+    [Header("Employees")]
+    public List<AudioClip> EmployeesCursing;
+
+    [Header("SFX")]
+    public List<AudioClip> SFX;
+
+    [Header("All")]
+    public List<AudioClip> AudioClips;
 
     public static SfxManager instance;
 
@@ -19,5 +30,10 @@ public class SfxManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(this);
+
+        AudioClips.AddRange(ManagerCatchingPlayer);
+        AudioClips.AddRange(ManagerChasingPlayer);
+        AudioClips.AddRange(EmployeesCursing);
+        AudioClips.AddRange(SFX);
     }
 }

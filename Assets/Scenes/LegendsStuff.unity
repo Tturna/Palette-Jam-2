@@ -947,6 +947,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 892608929}
+  ManagerCatchingPlayer:
+  - {fileID: 8300000, guid: c1b2e244de75007419c3013f02de8648, type: 3}
+  - {fileID: 8300000, guid: 05e007a159b9f65488748353eb2ab7c9, type: 3}
+  - {fileID: 8300000, guid: 2d2c534199d25ec44986ec1afd9ca888, type: 3}
+  - {fileID: 8300000, guid: 1a900a5e8d1c3864bb9590b2569771fb, type: 3}
+  - {fileID: 8300000, guid: 6d149d6fe5b55d7439d50d928a58389a, type: 3}
+  ManagerChasingPlayer:
+  - {fileID: 8300000, guid: 2dc6f3ff6fd32694984ec6eaf7551e05, type: 3}
+  - {fileID: 8300000, guid: 39b5fb14f87eda34cb65ddb6540ed0ab, type: 3}
+  - {fileID: 8300000, guid: 078b3c84acbcfb94baea7195e1d9f549, type: 3}
+  - {fileID: 8300000, guid: 69138ac8f97452440bafa591507b0479, type: 3}
+  - {fileID: 8300000, guid: b75a1a8ba3027684a961632128d53c74, type: 3}
+  - {fileID: 8300000, guid: f6e59f2dcbb1ee84997f86b2cc828b7a, type: 3}
+  EmployeesCursing:
+  - {fileID: 8300000, guid: 6129657dc2f5087449121a0d4ee48275, type: 3}
+  - {fileID: 8300000, guid: a2b6062061d350d46a2f215be04b8060, type: 3}
+  - {fileID: 8300000, guid: 4c7e2e9d4ef7a26418ab1e68ef300188, type: 3}
+  - {fileID: 8300000, guid: 9aa1c5aa2915bef4390c2017613235de, type: 3}
+  - {fileID: 8300000, guid: 14307d78e039d654f8829021b498c476, type: 3}
+  - {fileID: 8300000, guid: 368bdff0c6be7614c8d8371ea7195950, type: 3}
+  - {fileID: 8300000, guid: e529d1cdc8407e7469601864b5b23a65, type: 3}
+  - {fileID: 8300000, guid: b4c6d254634bc484d8cbfda13ef77098, type: 3}
+  - {fileID: 8300000, guid: 5971d1642905dc545be536fb99d6f358, type: 3}
+  - {fileID: 8300000, guid: 66f67f29366cbde4eb8b2561ca4078b8, type: 3}
+  - {fileID: 8300000, guid: 953f1c9520dee6345ad59bc1535e833e, type: 3}
+  - {fileID: 8300000, guid: 868e9842b37ac6b47b652000083b6039, type: 3}
+  - {fileID: 8300000, guid: 8a4e7804dfb05444eb89f2a152794af9, type: 3}
+  SFX: []
   AudioClips: []
 --- !u!82 &892608929
 AudioSource:
