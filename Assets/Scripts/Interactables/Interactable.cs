@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour
 {
     public delegate void OnInteractHandler(GameObject target);
     public event OnInteractHandler OnInteract;
@@ -14,5 +14,8 @@ public abstract class Interactable : MonoBehaviour
         OnInteract?.Invoke(target);
     }
 
-    public abstract void Activate();
+    public void Activate()
+    {
+        TriggerOnInteract(gameObject);
+    }
 }

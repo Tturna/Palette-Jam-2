@@ -73,6 +73,7 @@ public class TaskManager : MonoBehaviour
         if (item.GetComponent<Item>().itemType == Item.ItemType.Property)
         {
             // Don't steal people's stuff done
+            Debug.Log("Don't steal people's stuff done");
         }
     }
 
@@ -88,18 +89,22 @@ public class TaskManager : MonoBehaviour
             else if (item.GetComponent<Item>().itemType == Item.ItemType.Marker && (pos - (Vector2)GameObject.Find("point_whiteboard").transform.position).magnitude < 3)
             {
                 // Don't mess up the whiteboard done
+                Debug.Log("Don't mess up the whiteboard done");
             }
             else if ((pos - (Vector2)GameObject.Find("point_trashcan").transform.position).magnitude < 3)
             {
                 // Don't litter done
+                Debug.Log("Don't litter done");
             }
             else if ((pos - (Vector2)GameObject.Find("point_employees").transform.position).magnitude < 3)
             {
                 // Don't annoy other employees done
+                Debug.Log("Don't annoy other employees done");
             }
             else if (item.GetComponent<Item>().itemType == Item.ItemType.Drink)
             {
                 // Don't spill drinks in the office done
+                Debug.Log("Don't spill drinks in the office done");
             }
         }
         catch
@@ -113,34 +118,42 @@ public class TaskManager : MonoBehaviour
         if (target.GetComponent<Interactable>().name == "TV")
         {
             // Don't touch the TV done
+            Debug.Log("Don't touch the TV done");
         }
         else if (target.GetComponent<Interactable>().name == "Fridge")
         {
             // Don't leave the fridge door open done
+            Debug.Log("Don't leave the fridge door open done");
         }
         else if (target.GetComponent<Interactable>().name == "Radio")
         {
             // Don't play loud music done
+            Debug.Log("Don't play loud music done");
         }
         else if (target.GetComponent<Interactable>().name == "Printer")
         {
             // Use the printer sparingly done
+            Debug.Log("Use the printer sparingly done");
         }
         else if (target.GetComponent<Interactable>().name == "Tap")
         {
             // Don't leave the tap running done
+            Debug.Log("Don't leave the tap running done");
         }
         else if (target.GetComponent<Interactable>().name == "Elevator")
         {
             // Don't mess with the elevator done
+            Debug.Log("Don't mess with the elevator done");
         }
         else if (target.GetComponent<Interactable>().name == "Router")
         {
             // Don't touch the Wi-Fi router done
+            Debug.Log("Don't touch the Wi-Fi router done");
         }
         else if (target.GetComponent<Interactable>().name == "TheSandwich")
         {
             // Don't eat the sandwich done
+            Debug.Log("Don't eat the sandwich done");
         }
 
         Debug.Log("Interact");
