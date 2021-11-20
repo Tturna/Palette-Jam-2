@@ -56,6 +56,9 @@ public class ItemManager : MonoBehaviour
         // Set the item as a child of the player
         carriedItem.transform.SetParent(transform);
         carriedItem.transform.localPosition = carriedItemPoint;
+
+        // Call event
+        carriedItem.GetComponent<Item>().TriggerOnGrabLand(carriedItem);
     }
 
     void ThrowItem()

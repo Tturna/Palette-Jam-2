@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractableTV : Interactable
+public class InteractableFridge : Interactable
 {
     public override void Activate()
     {
-        name = "TV";
+        name = "Fridge";
         TriggerOnInteract(gameObject);
 
         // Temp monitoring stuff

@@ -8,7 +8,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     // General
-    public enum ItemType { General, Drink, Food }
+    public enum ItemType { General, Drink, Food, Marker, Property }
 
     public ItemType itemType;
     [SerializeField] float pickUpRange;
@@ -20,12 +20,19 @@ public class Item : MonoBehaviour
 
     // Event
     public delegate void OnItemLandHandler(GameObject item, Vector2 landPosition);
+    public delegate void OnItemGrabHandler(GameObject item);
     public event OnItemLandHandler OnItemLand;
+    public event OnItemGrabHandler OnItemGrab;
 
     // Event trigger
     protected virtual void TriggerOnItemLand(GameObject item, Vector2 landPosition)
     {
         OnItemLand?.Invoke(item, landPosition);
+    }
+
+    public virtual void TriggerOnGrabLand(GameObject item)
+    {
+        OnItemGrab?.Invoke(item);
     }
 
     void Start()
@@ -58,10 +65,7 @@ public class Item : MonoBehaviour
 
             // Calculate flight
             transform.Translate(dir * flightSpeed * Time.deltaTime);
-            Debug.Log(verticalDeltaVelocity.Evaluate(t / duration));
-            Vector2 u = Vector2.up * verticalMultiplier * verticalDeltaVelocity.Evaluate(t / duration) * Time.deltaTime;
-            transform.Translate(u);
-            Debug.DrawLine(transform.position, u);
+            transform.Translate(Vector2.up * verticalMultiplier * verticalDeltaVelocity.Evaluate(t / duration) * Time.deltaTime);
 
             yield return new WaitForEndOfFrame();
         }
