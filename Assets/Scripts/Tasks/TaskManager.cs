@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-class Task
+public class Task
 {
     public string name;
 }
@@ -14,13 +14,14 @@ public class TaskManager : MonoBehaviour
     [SerializeField] GameObject endScreen;
 
     // List of tasks to use for this game
-    [SerializeField] List<Task> tasks = new List<Task>();
+    public List<Task> tasks = new List<Task>();
 
-    Task currentTask;
-    int tasksDone;
+    [HideInInspector] public Task currentTask;
+    [HideInInspector] public int tasksDone;
 
-    void Start()
+    void Awake()
     {
+
         // Populate used task list with random tasks
         RandomizeTaskList();
 
