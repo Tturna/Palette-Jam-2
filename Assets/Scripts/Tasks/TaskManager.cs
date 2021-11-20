@@ -14,7 +14,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] GameObject endScreen;
 
     // List of tasks to use for this game
-    List<Task> tasks = new List<Task>();
+    [SerializeField] List<Task> tasks = new List<Task>();
     int tasksDone;
 
     void Start()

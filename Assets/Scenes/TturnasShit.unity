@@ -1625,6 +1625,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endPoint: {fileID: 0}
   endScreen: {fileID: 0}
+  tasks:
+  - name: Don't feed the programmers
+  - name: Don't bring animals into the office
+  - name: Don't eat the sandwich
+  - name: Don't spill drinks in the office
+  - name: Don't leave the fridge door open
+  - name: Don't run in the office
+  - name: Don't annoy other employees
+  - name: Don't play loud music
+  - name: Use the printer sparingly
+  - name: Don't leave the tap running
+  - name: Don't mess with the elevator
+  - name: Don't litter
+  - name: Don't touch the TV
+  - name: Don't touch the Wi-Fi router
+  - name: Don't steal people's stuff
+  - name: Don't mess up the whiteboard
 --- !u!4 &1868647085
 Transform:
   m_ObjectHideFlags: 0
