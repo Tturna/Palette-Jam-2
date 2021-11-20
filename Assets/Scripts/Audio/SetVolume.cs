@@ -10,17 +10,31 @@ public class SetVolume : MonoBehaviour
     public Slider slider;
     public string mixerExposedVolName;
     public bool music;
+    public Text percentageText;
 
     void Start()
     {
-        if(music == true)
+        if(music)
         {
-            slider.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
-        }else
+            if(PlayerPrefs.HasKey("MusicVolume"))
+            {
+                slider.value = PlayerPrefs.GetFloat("MusicVolume");
+            }else
+            {
+                PlayerPrefs.SetFloat("MusicVolume", 0.8f);
+                slider.value = PlayerPrefs.GetFloat("MusicVolume");
+            }
+        }if(!music)
         {
-            slider.value = PlayerPrefs.GetFloat("SFXVolume", 0.75f);
+            if(PlayerPrefs.HasKey("SFXVolume"))
+            {
+                slider.value = PlayerPrefs.GetFloat("SFXVolume");
+            }else
+            {
+                PlayerPrefs.SetFloat("SFXVolume", 0.8f);
+                slider.value = PlayerPrefs.GetFloat("SFXVolume");
+            }
         }
-        
     }
 
     public void SetLevel()
@@ -33,6 +47,8 @@ public class SetVolume : MonoBehaviour
         }else
         {
             PlayerPrefs.SetFloat("SFXVolume", sliderValue);
-        }        
+        }
+
+        percentageText.text = Mathf.RoundToInt(sliderValue * 100) + "%";        
     }
 }

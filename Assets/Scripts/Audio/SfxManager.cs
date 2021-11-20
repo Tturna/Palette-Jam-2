@@ -6,10 +6,7 @@ public class SfxManager : MonoBehaviour
 {
     public AudioSource Audio;
 
-    public AudioClip Click;
-    public AudioClip Jump;
-    public AudioClip LevelUp;
-    public AudioClip Coin;
+    public AudioClip[] AudioClips;
 
     public static SfxManager instance;
 
