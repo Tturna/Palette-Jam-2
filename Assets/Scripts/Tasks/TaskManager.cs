@@ -22,7 +22,7 @@ public class TaskManager : MonoBehaviour
     void Start()
     {
         // Populate used task list with random tasks
-        PopulateTaskList();
+        RandomizeTaskList();
 
         // Set current task
         currentTask = tasks[0];
@@ -51,18 +51,17 @@ public class TaskManager : MonoBehaviour
         
     }
 
-    void PopulateTaskList()
+    void RandomizeTaskList()
     {
         // Create new temporary list for easy random picking
-        List<Task> all = tasks;
-        tasks.Clear();
 
         // Randomize the elements in the tasks list
         for (int i = 0; i < tasks.Count; i++)
         {
-            int r = Random.Range(0, all.Count); // Get random index
-            tasks.Add(all[r]); // Add task from temporary list
-            all.RemoveAt(r); // Remove task from temporary list to prevent duplicates
+            Task temp = tasks[i];
+            int randomIndex = Random.Range(i, tasks.Count);
+            tasks[i] = tasks[randomIndex];
+            tasks[randomIndex] = temp;
         }
     }
 
