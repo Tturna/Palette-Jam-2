@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8031328443953931484, guid: 66c25801f8a2d4948aceb665f2d5be3c, type: 3}
       propertyPath: m_Name
-      value: Prop (food) Variant
+      value: Burger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66c25801f8a2d4948aceb665f2d5be3c, type: 3}
