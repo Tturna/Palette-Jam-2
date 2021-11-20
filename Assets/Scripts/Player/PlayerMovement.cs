@@ -50,11 +50,11 @@ public class PlayerMovement : MonoBehaviour
 
         if(isFacingRight)
         {
-            playerSprite.flipX = false;
+            playerSprite.gameObject.transform.localScale = new Vector3(1f, 1f,1f);
         }
         if(!isFacingRight)
         {
-            playerSprite.flipX = true;
+            playerSprite.gameObject.transform.localScale = new Vector3(-1f, 1f,1f);
         }
 
         if(Input.GetKeyDown(KeyCode.LeftShift))
