@@ -10,22 +10,19 @@ class Task
 
 public class TaskManager : MonoBehaviour
 {
-    // General
-    [SerializeField] int tasksOnScreen;
-    [SerializeField] int tasksInGame;
-
-    // List of all possible tasks
-    [SerializeField] List<Task> allTasks = new List<Task>();
+    [SerializeField] GameObject endPoint;
+    [SerializeField] GameObject endScreen;
 
     // List of tasks to use for this game
     List<Task> tasks = new List<Task>();
+    int tasksDone;
 
     void Start()
     {
         // Populate used task list with random tasks
         PopulateTaskList();
 
-        // Show top 5 in UI
+        // Show top X tasks in UI
         UpdateUI();
 
         // Subscribe to events
@@ -52,10 +49,11 @@ public class TaskManager : MonoBehaviour
     void PopulateTaskList()
     {
         // Create new temporary list for easy random picking
-        List<Task> all = allTasks;
+        List<Task> all = tasks;
+        tasks.Clear();
 
-        // Populate the tasks list with random tasks
-        for (int i = 0; i < tasksInGame; i++)
+        // Randomize the elements in the tasks list
+        for (int i = 0; i < tasks.Count; i++)
         {
             int r = Random.Range(0, all.Count); // Get random index
             tasks.Add(all[r]); // Add task from temporary list
@@ -74,6 +72,7 @@ public class TaskManager : MonoBehaviour
         {
             // Don't steal people's stuff done
             Debug.Log("Don't steal people's stuff done");
+            TaskDone();
         }
     }
 
@@ -85,26 +84,31 @@ public class TaskManager : MonoBehaviour
             {
                 // Don't feed the programmers done
                 Debug.Log("Don't feed the programmers done");
+                TaskDone();
             }
             else if (item.GetComponent<Item>().itemType == Item.ItemType.Marker && (pos - (Vector2)GameObject.Find("point_whiteboard").transform.position).magnitude < 3)
             {
                 // Don't mess up the whiteboard done
                 Debug.Log("Don't mess up the whiteboard done");
+                TaskDone();
             }
             else if ((pos - (Vector2)GameObject.Find("point_trashcan").transform.position).magnitude < 3)
             {
                 // Don't litter done
                 Debug.Log("Don't litter done");
+                TaskDone();
             }
             else if ((pos - (Vector2)GameObject.Find("point_employees").transform.position).magnitude < 3)
             {
                 // Don't annoy other employees done
                 Debug.Log("Don't annoy other employees done");
+                TaskDone();
             }
             else if (item.GetComponent<Item>().itemType == Item.ItemType.Drink)
             {
                 // Don't spill drinks in the office done
                 Debug.Log("Don't spill drinks in the office done");
+                TaskDone();
             }
         }
         catch
@@ -119,43 +123,68 @@ public class TaskManager : MonoBehaviour
         {
             // Don't touch the TV done
             Debug.Log("Don't touch the TV done");
+            TaskDone();
         }
         else if (target.GetComponent<Interactable>().name == "Fridge")
         {
             // Don't leave the fridge door open done
             Debug.Log("Don't leave the fridge door open done");
+            TaskDone();
         }
         else if (target.GetComponent<Interactable>().name == "Radio")
         {
             // Don't play loud music done
             Debug.Log("Don't play loud music done");
+            TaskDone();
         }
         else if (target.GetComponent<Interactable>().name == "Printer")
         {
             // Use the printer sparingly done
             Debug.Log("Use the printer sparingly done");
+            TaskDone();
         }
         else if (target.GetComponent<Interactable>().name == "Tap")
         {
             // Don't leave the tap running done
             Debug.Log("Don't leave the tap running done");
+            TaskDone();
         }
         else if (target.GetComponent<Interactable>().name == "Elevator")
         {
             // Don't mess with the elevator done
             Debug.Log("Don't mess with the elevator done");
+            TaskDone();
         }
         else if (target.GetComponent<Interactable>().name == "Router")
         {
             // Don't touch the Wi-Fi router done
             Debug.Log("Don't touch the Wi-Fi router done");
+            TaskDone();
         }
         else if (target.GetComponent<Interactable>().name == "TheSandwich")
         {
             // Don't eat the sandwich done
             Debug.Log("Don't eat the sandwich done");
+            TaskDone();
         }
 
         Debug.Log("Interact");
+    }
+
+    void TaskDone()
+    {
+        tasksDone++;
+
+        // Everything done
+        // Give last task (get out)
+        if (tasksDone >= tasks.Count)
+        {
+            endPoint.SetActive(true);
+        }
+    }
+
+    public void EndGame()
+    {
+        endScreen.SetActive(true);
     }
 }

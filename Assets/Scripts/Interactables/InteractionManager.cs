@@ -31,6 +31,10 @@ public class InteractionManager : MonoBehaviour
         {
             nearObjects.Add(collision.gameObject);
         }
+        else if (collision.gameObject.CompareTag("Finish"))
+        {
+            FindObjectOfType<TaskManager>().EndGame();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
