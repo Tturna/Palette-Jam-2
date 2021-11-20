@@ -33,6 +33,13 @@ public class ItemManager : MonoBehaviour
             if (isCarrying) ThrowItem(); else PickUpItem();
         }
 
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(isCarrying) isCarrying = false;
+            // Just placing it down without yeeting it
+            carriedItem.transform.SetParent(null);
+        }
+
         // Calculate cursor direction
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0;
