@@ -15,6 +15,8 @@ public class TaskManager : MonoBehaviour
 
     // List of tasks to use for this game
     [SerializeField] List<Task> tasks = new List<Task>();
+
+    Task currentTask;
     int tasksDone;
 
     void Start()
@@ -22,7 +24,10 @@ public class TaskManager : MonoBehaviour
         // Populate used task list with random tasks
         PopulateTaskList();
 
-        // Show top X tasks in UI
+        // Set current task
+        currentTask = tasks[0];
+
+        // Show current task in UI
         UpdateUI();
 
         // Subscribe to events
@@ -174,13 +179,17 @@ public class TaskManager : MonoBehaviour
     void TaskDone()
     {
         tasksDone++;
+        tasks.RemoveAt(0);
 
         // Everything done
         // Give last task (get out)
         if (tasksDone >= tasks.Count)
         {
             endPoint.SetActive(true);
+            return;
         }
+
+        currentTask = tasks[0];
     }
 
     public void EndGame()
