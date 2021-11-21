@@ -22,6 +22,7 @@ public class TaskManager : MonoBehaviour
     public Task currentTask;
     [HideInInspector] public int tasksDone;
     [HideInInspector] public int totalTasks;
+    [SerializeField] GameObject Office;
 
     void Awake()
     {
@@ -100,6 +101,7 @@ public class TaskManager : MonoBehaviour
             {
                 // Don't mess up the whiteboard done
                 TaskDone("Don't mess up the whiteboard");
+                Office.GetComponent<Animator>().Play("Whiteboard");
             }
             else if ((pos - (Vector2)GameObject.Find("point_trashcan").transform.position).magnitude < 3)
             {
@@ -134,6 +136,7 @@ public class TaskManager : MonoBehaviour
         {
             // Don't leave the fridge door open done
             TaskDone("Don't leave the fridge door open");
+            Office.GetComponent<Animator>().Play("Fridge");
         }
         else if (target.GetComponent<Interactable>().name == "Radio")
         {
@@ -149,6 +152,7 @@ public class TaskManager : MonoBehaviour
         {
             // Don't leave the tap running done
             TaskDone("Don't leave the tap running");
+            Office.GetComponent<Animator>().Play("Tap");
         }
         else if (target.GetComponent<Interactable>().name == "Elevator")
         {
@@ -164,6 +168,7 @@ public class TaskManager : MonoBehaviour
         {
             // Don't eat the sandwich done
             TaskDone("Don't eat the sandvich");
+            SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.sandvich);
         }
         else if (target.GetComponent<Interactable>().name == "Doge")
         {

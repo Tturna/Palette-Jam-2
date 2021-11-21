@@ -11,7 +11,7 @@ public class InteractionManager : MonoBehaviour
     void Update()
     {
         // Get input
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.E))
         {
             Interact();
         }
