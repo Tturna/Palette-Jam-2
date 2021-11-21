@@ -31,7 +31,10 @@ public class EnemyAI : MonoBehaviour
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
 
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        if (canMove)
+        {
+            InvokeRepeating("UpdatePath", 0f, .5f);
+        }
     }
 
     void UpdatePath()
@@ -98,6 +101,14 @@ public class EnemyAI : MonoBehaviour
         }else
         {
             anim.SetBool("Stunned", false);
+        }
+
+        if (GameObject.FindObjectOfType<TaskManager>().tasksDone >= 0)
+        {
+            canMove = false;
+        }else
+        {
+            canMove = true;
         }
     }
 
