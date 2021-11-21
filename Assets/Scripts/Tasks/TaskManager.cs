@@ -175,7 +175,8 @@ public class TaskManager : MonoBehaviour
         else if (target.GetComponent<Interactable>().name == "TheSandwich")
         {
             // Don't eat the sandwich done
-            Debug.Log("Don't eat the sandwich done");
+            Debug.Log("Don't eat the sandvich done");
+            SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.sandvich);
             TaskDone();
         }
 

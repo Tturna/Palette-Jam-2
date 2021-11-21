@@ -15,9 +15,11 @@ public class SfxManager : MonoBehaviour
 
     [Header("SFX")]
     public List<AudioClip> WinSounds;
+    public AudioClip sandvich;
 
     [Header("All")]
     public List<AudioClip> AudioClips;
+    
 
     public static SfxManager instance;
 
