@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Scenes : MonoBehaviour
 {
-    public string scene;
     public float changeTime;
     public bool changeAfterTime;
 
@@ -28,9 +27,9 @@ public class Scenes : MonoBehaviour
         }
     }
 
-    public void SelectScene()
+    public void SelectScene(string sceneName)
     {
-      StartCoroutine(TransitionForParticularScene(scene));
+      StartCoroutine(TransitionForParticularScene(sceneName));
     }
 
     public void Restart()

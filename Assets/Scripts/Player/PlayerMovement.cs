@@ -64,11 +64,11 @@ public class PlayerMovement : MonoBehaviour
             playerSprite.gameObject.transform.localScale = new Vector3(-1f, 1f,1f);
         }
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
             moveSpeed = sprintSpeed;
         }
-        if(Input.GetKeyUp(KeyCode.LeftShift))
+        if(Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
             moveSpeed = speed;
         }
