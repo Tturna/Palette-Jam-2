@@ -6,6 +6,7 @@ using UnityEngine;
 public class Task
 {
     public string name;
+    public bool taskCompleted;
 }
 
 public class TaskManager : MonoBehaviour
@@ -50,7 +51,11 @@ public class TaskManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) && currentTask.taskCompleted == false)
+        {
+            Debug.Log("Don't Run In The Office");
+            TaskDone();
+        }
     }
 
     void RandomizeTaskList()
@@ -74,7 +79,7 @@ public class TaskManager : MonoBehaviour
 
     void OnItemGrab(GameObject item)
     {
-        if (item.GetComponent<Item>().itemType == Item.ItemType.Property)
+        if (item.GetComponent<Item>().itemType == Item.ItemType.Property  && currentTask.taskCompleted == false)
         {
             // Don't steal people's stuff done
             Debug.Log("Don't steal people's stuff done");

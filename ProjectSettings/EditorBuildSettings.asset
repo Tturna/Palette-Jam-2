@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LegendsStuff.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Menu.unity
+    guid: a2ab8e354f1040f40a1005d0cef6bab4
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: b259d217ca26f7c44b33b19e8bd3d5ca
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 51ad325ca7e2a0845ae27e1c6e8c5834
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 12355cd844f8a9d459cf253048efc8bd
   m_configObjects: {}
