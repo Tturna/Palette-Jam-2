@@ -165,6 +165,12 @@ public class TaskManager : MonoBehaviour
             // Don't eat the sandwich done
             TaskDone("Don't eat the sandwich");
         }
+        else if (target.GetComponent<Interactable>().name == "Doge")
+        {
+            // Don't let the dog free done
+            TaskDone("Don't let the dog free");
+            target.GetComponent<Doge>().FuckingZoom();
+        }
 
         Debug.Log("Interact");
     }
@@ -193,6 +199,7 @@ public class TaskManager : MonoBehaviour
         }
 
         currentTask = tasks[0];
+
 
         int rand = Random.Range(0, SfxManager.instance.WinSounds.Count);
 
