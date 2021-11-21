@@ -9,6 +9,9 @@ public class Scenes : MonoBehaviour
     public float changeTime;
     public bool changeAfterTime;
 
+    public Animator transitionAnim;
+    public float waitTime;
+
     void Awake()
     {
       if(changeAfterTime == true)
@@ -27,17 +30,17 @@ public class Scenes : MonoBehaviour
 
     public void SelectScene()
     {
-      SceneManager.LoadScene(scene);
+      StartCoroutine(TransitionForParticularScene(scene));
     }
 
     public void Restart()
     {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);  
+      StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void NextLevel()
     {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+      StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     public void ChangeLevelAfterTime()
@@ -46,5 +49,19 @@ public class Scenes : MonoBehaviour
       {
         Invoke("NextLevel", changeTime);
       }
+    }
+
+    IEnumerator Transition(int scene)
+    {
+      transitionAnim.SetTrigger("end");
+      yield return new WaitForSeconds(waitTime);
+      SceneManager.LoadSceneAsync(scene);
+    }
+
+    IEnumerator TransitionForParticularScene(string scene)
+    {
+      transitionAnim.SetTrigger("end");
+      yield return new WaitForSeconds(waitTime);
+      SceneManager.LoadSceneAsync(scene);
     }
 }
