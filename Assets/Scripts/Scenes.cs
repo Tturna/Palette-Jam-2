@@ -11,8 +11,11 @@ public class Scenes : MonoBehaviour
     public Animator transitionAnim;
     public float waitTime;
 
+    public static Scenes instance;
+
     void Awake()
     {
+      instance = this;
       if(changeAfterTime == true)
       {
         ChangeLevelAfterTime();

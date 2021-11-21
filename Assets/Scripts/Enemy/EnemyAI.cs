@@ -120,6 +120,24 @@ public class EnemyAI : MonoBehaviour
         if(other.gameObject.tag == "Pickup")
         {
             StunEnemy();
+
+            int rand = Random.Range(0, SfxManager.instance.ManagerChasingPlayer.Count);
+
+            SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.ManagerChasingPlayer[rand]);
+        }
+    }
+
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            int rand = Random.Range(0, SfxManager.instance.ManagerCatchingPlayer.Count);
+
+            SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.ManagerCatchingPlayer[rand]);
+
+            other.gameObject.GetComponent<PlayerMovement>().canMove = false;
+            Scenes.instance.Restart();
         }
     }
 }

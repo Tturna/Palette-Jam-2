@@ -191,10 +191,6 @@ public class TaskManager : MonoBehaviour
         }
 
         currentTask = tasks[0];
-
-        int rand = Random.Range(0, SfxManager.instance.ManagerChasingPlayer.Count);
-
-        SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.ManagerChasingPlayer[rand]);
     }
 
     public void EndGame()

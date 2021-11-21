@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isFacingRight;
     private SpriteRenderer playerSprite;
     bool isSprinting;
+    [HideInInspector]
+    public bool canMove = true;
 
     [Header("Animation")]
     public Animator animator;
@@ -40,8 +42,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        movement = moveInput.normalized * moveSpeed;
+        if (canMove)
+        {
+            Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            movement = moveInput.normalized * moveSpeed;  
 
         animator.SetFloat("Speed", moveInput.sqrMagnitude);
 
@@ -103,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
         }else
         {
             timeBtwAttack -= Time.deltaTime;
+        }
         }
     }
 

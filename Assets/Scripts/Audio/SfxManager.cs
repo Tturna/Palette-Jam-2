@@ -14,7 +14,7 @@ public class SfxManager : MonoBehaviour
     public List<AudioClip> EmployeesCursing;
 
     [Header("SFX")]
-    public List<AudioClip> SFX;
+    public List<AudioClip> WinSounds;
 
     [Header("All")]
     public List<AudioClip> AudioClips;
@@ -34,6 +34,6 @@ public class SfxManager : MonoBehaviour
         AudioClips.AddRange(ManagerCatchingPlayer);
         AudioClips.AddRange(ManagerChasingPlayer);
         AudioClips.AddRange(EmployeesCursing);
-        AudioClips.AddRange(SFX);
+        AudioClips.AddRange(WinSounds);
     }
 }
