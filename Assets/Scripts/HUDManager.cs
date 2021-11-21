@@ -9,10 +9,13 @@ public class HUDManager : MonoBehaviour
     public Text currentRuleText;
     public int tasksDone;
     public TaskManager taskManager;
+    public Animator CrossOutAnimation;
+    public static HUDManager instance;
 
     void Start()
     {
         taskManager = GameObject.FindObjectOfType<TaskManager>();
+        instance = this;
     }
 
     void Update()

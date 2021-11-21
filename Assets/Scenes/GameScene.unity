@@ -1490,7 +1490,6 @@ MonoBehaviour:
   ManagerCatchingPlayer:
   - {fileID: 8300000, guid: c1b2e244de75007419c3013f02de8648, type: 3}
   - {fileID: 8300000, guid: 05e007a159b9f65488748353eb2ab7c9, type: 3}
-  - {fileID: 8300000, guid: 2d2c534199d25ec44986ec1afd9ca888, type: 3}
   - {fileID: 8300000, guid: 1a900a5e8d1c3864bb9590b2569771fb, type: 3}
   - {fileID: 8300000, guid: 6d149d6fe5b55d7439d50d928a58389a, type: 3}
   ManagerChasingPlayer:
@@ -1514,7 +1513,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 953f1c9520dee6345ad59bc1535e833e, type: 3}
   - {fileID: 8300000, guid: 868e9842b37ac6b47b652000083b6039, type: 3}
   - {fileID: 8300000, guid: 8a4e7804dfb05444eb89f2a152794af9, type: 3}
-  WinSounds: []
+  WinSounds:
+  - {fileID: 8300000, guid: 92893dd707367984d978fcf16a54296b, type: 3}
+  - {fileID: 8300000, guid: 0079e97342acc994c8b0f909f4a4bb1c, type: 3}
+  - {fileID: 8300000, guid: 904907c433fbdb447953121c40f1059d, type: 3}
   AudioClips: []
 --- !u!4 &469345955
 Transform:
@@ -2986,10 +2988,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1087010298}
   - component: {fileID: 1087010297}
-  - component: {fileID: 1087010296}
   - component: {fileID: 1087010295}
   - component: {fileID: 1087010294}
   - component: {fileID: 1087010293}
+  - component: {fileID: 1087010296}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Manager
@@ -3056,8 +3058,8 @@ MonoBehaviour:
   enemySprite: {fileID: 1654223338}
   stunTime: 2.5
   anim: {fileID: 1087010293}
---- !u!61 &1087010296
-BoxCollider2D:
+--- !u!58 &1087010296
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3069,19 +3071,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06147456, y: 0.118151665}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1.132236, y: 1.0005269}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!114 &1087010297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3263,6 +3255,7 @@ MonoBehaviour:
   currentRuleText: {fileID: 2106179259}
   tasksDone: 0
   taskManager: {fileID: 0}
+  CrossOutAnimation: {fileID: 1094347439}
 --- !u!1 &1129007356
 GameObject:
   m_ObjectHideFlags: 0

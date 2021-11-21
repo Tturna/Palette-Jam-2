@@ -105,6 +105,8 @@ public class EnemyAI : MonoBehaviour
     {
         canMove = false;
         isBeingStunned = true;
+        int rand = Random.Range(0, SfxManager.instance.ManagerChasingPlayer.Count);
+        SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.ManagerChasingPlayer[rand]);
         yield return new WaitForSeconds(stunTime);
         canMove = true;
         isBeingStunned = false;
@@ -120,10 +122,6 @@ public class EnemyAI : MonoBehaviour
         if(other.gameObject.tag == "Pickup")
         {
             StunEnemy();
-
-            int rand = Random.Range(0, SfxManager.instance.ManagerChasingPlayer.Count);
-
-            SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.ManagerChasingPlayer[rand]);
         }
     }
 

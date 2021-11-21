@@ -177,7 +177,7 @@ public class TaskManager : MonoBehaviour
         Debug.Log("Interact");
     }
 
-    void TaskDone()
+    public void TaskDone()
     {
         tasksDone++;
         tasks.RemoveAt(0);
@@ -191,6 +191,12 @@ public class TaskManager : MonoBehaviour
         }
 
         currentTask = tasks[0];
+
+        int rand = Random.Range(0, SfxManager.instance.WinSounds.Count);
+
+        SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.WinSounds[rand]);
+
+        HUDManager.instance.CrossOutAnimation.Play("RuleBreak");
     }
 
     public void EndGame()
