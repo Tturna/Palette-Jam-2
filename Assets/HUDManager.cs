@@ -15,11 +15,11 @@ public class HUDManager : MonoBehaviour
         taskManager = GameObject.FindObjectOfType<TaskManager>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        currentRuleText.text = taskManager.currentTask.ToString();
+        currentRuleText.text = taskManager.currentTask.name;
 
         tasksDone = taskManager.tasksDone;
-        tasksDoneCounter.text = "(" + tasksDone + "/" + taskManager.tasks + ")";
+        tasksDoneCounter.text = "(" + tasksDone + "/" + taskManager.tasks.Count + ")";
     }
 }
