@@ -20,6 +20,6 @@ public class HUDManager : MonoBehaviour
         currentRuleText.text = taskManager.currentTask.name;
 
         tasksDone = taskManager.tasksDone;
-        tasksDoneCounter.text = "(" + tasksDone + "/" + taskManager.tasks.Count + ")";
+        tasksDoneCounter.text = "(" + tasksDone + "/" + taskManager.totalTasks + ")";
     }
 }

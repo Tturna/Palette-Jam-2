@@ -18,10 +18,11 @@ public class TaskManager : MonoBehaviour
 
     [HideInInspector] public Task currentTask;
     [HideInInspector] public int tasksDone;
+    [HideInInspector] public int totalTasks;
 
     void Awake()
     {
-
+        totalTasks = tasks.Count;
         // Populate used task list with random tasks
         RandomizeTaskList();
 
@@ -183,7 +184,7 @@ public class TaskManager : MonoBehaviour
 
         // Everything done
         // Give last task (get out)
-        if (tasksDone >= tasks.Count)
+        if (tasksDone >= totalTasks)
         {
             endPoint.SetActive(true);
             return;
