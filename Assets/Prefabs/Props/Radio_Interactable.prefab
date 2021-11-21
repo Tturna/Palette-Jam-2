@@ -112,4 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c65f856069b4040aa71471a99db91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: 6024717204825164481, guid: 930a4b9ed9824ae419f5b80e44a337ba, type: 3}
   name: Radio

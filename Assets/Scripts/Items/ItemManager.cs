@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
+//[RequireComponent(typeof(Collider2D))]
 public class ItemManager : MonoBehaviour
 {
     [SerializeField] Vector2 carriedItemPoint;
@@ -68,6 +68,13 @@ public class ItemManager : MonoBehaviour
         // Yeet the child
         carriedItem.transform.SetParent(null);
         carriedItem.GetComponent<Item>().Yeet(mouseDir);
+        StartCoroutine(DelayR(0.5f));
+    }
+
+    IEnumerator DelayR(float delay) // I'm sorry my brain is not working anymore. I just want to get this done with lol
+    {
+        yield return new WaitForSeconds(delay);
+        nearItems.Remove(carriedItem);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

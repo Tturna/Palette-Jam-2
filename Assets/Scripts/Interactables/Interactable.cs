@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public class Interactable : SpriteThing
 {
     public delegate void OnInteractHandler(GameObject target);
     public event OnInteractHandler OnInteract;

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class Item : MonoBehaviour
+public class Item : SpriteThing
 {
     // General
     public enum ItemType { General, Drink, Food, Marker, Property }
@@ -48,6 +48,7 @@ public class Item : MonoBehaviour
         gameObject.AddComponent<BoxCollider2D>();
         Rigidbody2D rb = gameObject.AddComponent<Rigidbody2D>();
         rb.gravityScale = 0;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         // Change layer so it doesn't collide with the player
         gameObject.layer = 6;
