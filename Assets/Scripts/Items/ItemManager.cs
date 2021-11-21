@@ -28,7 +28,7 @@ public class ItemManager : MonoBehaviour
     private void Update()
     {
         // Get input
-        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             if (isCarrying) ThrowItem(); else PickUpItem();
         }
