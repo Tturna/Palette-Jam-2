@@ -163,7 +163,7 @@ public class TaskManager : MonoBehaviour
         else if (target.GetComponent<Interactable>().name == "TheSandwich")
         {
             // Don't eat the sandwich done
-            TaskDone("Don't eat the sandwich");
+            TaskDone("Don't eat the sandvich");
         }
         else if (target.GetComponent<Interactable>().name == "Doge")
         {

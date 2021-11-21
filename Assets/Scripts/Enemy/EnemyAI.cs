@@ -105,10 +105,12 @@ public class EnemyAI : MonoBehaviour
     {
         canMove = false;
         isBeingStunned = true;
+        GetComponent<Collider2D>().isTrigger = true;
         int rand = Random.Range(0, SfxManager.instance.ManagerChasingPlayer.Count);
         SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.ManagerChasingPlayer[rand]);
         yield return new WaitForSeconds(stunTime);
         canMove = true;
+        GetComponent<Collider2D>().isTrigger = false;
         isBeingStunned = false;
     }
 
@@ -128,7 +130,7 @@ public class EnemyAI : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" && isBeingStunned == false)
         {
             int rand = Random.Range(0, SfxManager.instance.ManagerCatchingPlayer.Count);
 
