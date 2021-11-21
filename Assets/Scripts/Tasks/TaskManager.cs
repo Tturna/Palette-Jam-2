@@ -29,6 +29,7 @@ public class TaskManager : MonoBehaviour
     public Task currentTask;
     [HideInInspector] public int tasksDone;
     [HideInInspector] public int totalTasks;
+    [SerializeField] GameObject Office;
 
     void Start()
     {
@@ -109,7 +110,7 @@ public class TaskManager : MonoBehaviour
             if (item.GetComponent<Item>().itemType == Item.ItemType.Marker && (pos - (Vector2)GameObject.Find("point_whiteboard").transform.position).magnitude < 3)
             {
                 // Don't mess up the whiteboard done
-                if (TaskDone("Don't mess up the whiteboard")) return;
+                if (TaskDone("Don't mess up the whiteboard")) Office.GetComponent<Animator>().Play("Whiteboard"); return;
             }
             if (item.GetComponent<Item>().itemType == Item.ItemType.Food || item.GetComponent<Item>().itemType == Item.ItemType.Drink)
             {
@@ -144,6 +145,7 @@ public class TaskManager : MonoBehaviour
         {
             // Don't leave the fridge door open done
             TaskDone("Don't leave the fridge door open");
+            Office.GetComponent<Animator>().Play("Fridge");
         }
         else if (target.GetComponent<Interactable>().name == "Radio")
         {
@@ -159,6 +161,7 @@ public class TaskManager : MonoBehaviour
         {
             // Don't leave the tap running done
             TaskDone("Don't leave the tap running");
+            Office.GetComponent<Animator>().Play("Tap");
         }
         else if (target.GetComponent<Interactable>().name == "Elevator")
         {
@@ -173,7 +176,8 @@ public class TaskManager : MonoBehaviour
         else if (target.GetComponent<Interactable>().name == "TheSandwich")
         {
             // Don't eat the sandwich done
-            TaskDone("Don't eat the sandwich");
+            TaskDone("Don't eat the sandvich");
+            SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.sandvich);
         }
         else if (target.GetComponent<Interactable>().name == "Doge")
         {
