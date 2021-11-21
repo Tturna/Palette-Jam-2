@@ -29,6 +29,7 @@ public class Doge : MonoBehaviour
         {
             gameObject.layer = 6;
             GetComponent<Animator>().SetTrigger("run");
+            GetComponent<Animator>().SetBool("running", running);
             InvokeRepeating("UpdateDirection", 0f, 3f);
             gameObject.AddComponent<BoxCollider2D>();
         }

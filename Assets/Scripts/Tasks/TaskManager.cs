@@ -55,7 +55,7 @@ public class TaskManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
-            TaskDone("Don't Run In The Office");
+            TaskDone("don't run in the office");
         }
     }
 

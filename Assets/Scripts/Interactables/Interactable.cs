@@ -16,6 +16,6 @@ public class Interactable : MonoBehaviour
 
     public void Activate()
     {
-          TriggerOnInteract(gameObject);
+        TriggerOnInteract(gameObject);
     }
 }
