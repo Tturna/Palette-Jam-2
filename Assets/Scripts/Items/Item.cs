@@ -76,7 +76,15 @@ public class Item : MonoBehaviour
     void Deth()
     {
         TriggerOnItemLand(gameObject, transform.position);
-        Destroy(gameObject);
+
+        // Remove physics components from the object so it behaves normally
+        Destroy(GetComponent<BoxCollider2D>());
+        Destroy(GetComponent<Rigidbody2D>());
+
+        // reset layer to default
+        gameObject.layer = 0;
+
+        //Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

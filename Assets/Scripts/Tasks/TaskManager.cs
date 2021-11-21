@@ -6,7 +6,6 @@ using UnityEngine;
 public class Task
 {
     public string name;
-    public bool taskCompleted;
 }
 
 public class TaskManager : MonoBehaviour
@@ -17,7 +16,10 @@ public class TaskManager : MonoBehaviour
     // List of tasks to use for this game
     public List<Task> tasks = new List<Task>();
 
-    [HideInInspector] public Task currentTask;
+    // List of task names that are done
+    List<string> doneTasks = new List<string>();
+
+    public Task currentTask;
     [HideInInspector] public int tasksDone;
     [HideInInspector] public int totalTasks;
 
@@ -51,10 +53,9 @@ public class TaskManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) && currentTask.taskCompleted == false)
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
-            Debug.Log("Don't Run In The Office");
-            TaskDone();
+            TaskDone("Don't Run In The Office");
         }
     }
 
@@ -79,11 +80,10 @@ public class TaskManager : MonoBehaviour
 
     void OnItemGrab(GameObject item)
     {
-        if (item.GetComponent<Item>().itemType == Item.ItemType.Property  && currentTask.taskCompleted == false)
+        if (item.GetComponent<Item>().itemType == Item.ItemType.Property)
         {
             // Don't steal people's stuff done
-            Debug.Log("Don't steal people's stuff done");
-            TaskDone();
+            TaskDone("Don't steal people's stuff");
         }
     }
 
@@ -94,32 +94,27 @@ public class TaskManager : MonoBehaviour
             if (item.GetComponent<Item>().itemType == Item.ItemType.Food && (pos - (Vector2)GameObject.Find("point_programmers").transform.position).magnitude < 3)
             {
                 // Don't feed the programmers done
-                Debug.Log("Don't feed the programmers done");
-                TaskDone();
+                TaskDone("Don't feed the programmers");
             }
             else if (item.GetComponent<Item>().itemType == Item.ItemType.Marker && (pos - (Vector2)GameObject.Find("point_whiteboard").transform.position).magnitude < 3)
             {
                 // Don't mess up the whiteboard done
-                Debug.Log("Don't mess up the whiteboard done");
-                TaskDone();
+                TaskDone("Don't mess up the whiteboard");
             }
             else if ((pos - (Vector2)GameObject.Find("point_trashcan").transform.position).magnitude < 3)
             {
                 // Don't litter done
-                Debug.Log("Don't litter done");
-                TaskDone();
+                TaskDone("Don't litter");
             }
             else if ((pos - (Vector2)GameObject.Find("point_employees").transform.position).magnitude < 3)
             {
                 // Don't annoy other employees done
-                Debug.Log("Don't annoy other employees done");
-                TaskDone();
+                TaskDone("Don't annoy other employees");
             }
             else if (item.GetComponent<Item>().itemType == Item.ItemType.Drink)
             {
                 // Don't spill drinks in the office done
-                Debug.Log("Don't spill drinks in the office done");
-                TaskDone();
+                TaskDone("Don't spill drinks in the office");
             }
         }
         catch
@@ -133,57 +128,59 @@ public class TaskManager : MonoBehaviour
         if (target.GetComponent<Interactable>().name == "TV")
         {
             // Don't touch the TV done
-            Debug.Log("Don't touch the TV done");
-            TaskDone();
+            TaskDone("Don't touch the TV");
         }
         else if (target.GetComponent<Interactable>().name == "Fridge")
         {
             // Don't leave the fridge door open done
-            Debug.Log("Don't leave the fridge door open done");
-            TaskDone();
+            TaskDone("Don't leave the fridge door open");
         }
         else if (target.GetComponent<Interactable>().name == "Radio")
         {
             // Don't play loud music done
-            Debug.Log("Don't play loud music done");
-            TaskDone();
+            TaskDone("Don't play loud music");
         }
         else if (target.GetComponent<Interactable>().name == "Printer")
         {
             // Use the printer sparingly done
-            Debug.Log("Use the printer sparingly done");
-            TaskDone();
+            TaskDone("Use the printer sparingly");
         }
         else if (target.GetComponent<Interactable>().name == "Tap")
         {
             // Don't leave the tap running done
-            Debug.Log("Don't leave the tap running done");
-            TaskDone();
+            TaskDone("Don't leave the tap running");
         }
         else if (target.GetComponent<Interactable>().name == "Elevator")
         {
             // Don't mess with the elevator done
-            Debug.Log("Don't mess with the elevator done");
-            TaskDone();
+            TaskDone("Don't mess with the elevator");
         }
         else if (target.GetComponent<Interactable>().name == "Router")
         {
             // Don't touch the Wi-Fi router done
-            Debug.Log("Don't touch the Wi-Fi router done");
-            TaskDone();
+            TaskDone("Don't touch the Wi-Fi router");
         }
         else if (target.GetComponent<Interactable>().name == "TheSandwich")
         {
             // Don't eat the sandwich done
-            Debug.Log("Don't eat the sandwich done");
-            TaskDone();
+            TaskDone("Don't eat the sandwich");
         }
 
         Debug.Log("Interact");
     }
 
-    public void TaskDone()
+    public void TaskDone(string name)
     {
+        // Check if this is not the current task
+        if (currentTask.name != name) return; // Prevent doing a task that you don't have
+
+        // Check if the task is already done
+        if (doneTasks.Contains(name)) return;
+
+        // if not, add it to the list of done tasks
+        else doneTasks.Add(name);
+
+        Debug.Log(name + " done!");
         tasksDone++;
         tasks.RemoveAt(0);
 

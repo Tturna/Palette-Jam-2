@@ -1642,6 +1642,10 @@ MonoBehaviour:
   - name: Don't touch the Wi-Fi router
   - name: Don't steal people's stuff
   - name: Don't mess up the whiteboard
+  currentTask:
+    name: 
+  tasksDone: 0
+  totalTasks: 0
 --- !u!4 &1868647085
 Transform:
   m_ObjectHideFlags: 0
@@ -2037,11 +2041,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 112045091955379247, guid: b83178a4786b00c4c80f846dfd9fb031, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 6.52
       objectReference: {fileID: 0}
     - target: {fileID: 112045091955379247, guid: b83178a4786b00c4c80f846dfd9fb031, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.33
       objectReference: {fileID: 0}
     - target: {fileID: 112045091955379247, guid: b83178a4786b00c4c80f846dfd9fb031, type: 3}
       propertyPath: m_LocalPosition.z
