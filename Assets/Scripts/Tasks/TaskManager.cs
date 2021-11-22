@@ -240,7 +240,7 @@ public class TaskManager : MonoBehaviour
         // Reset all highlights
         foreach (SpriteThing st in FindObjectsOfType<SpriteThing>())
         {
-            st.gameObject.GetComponent<SpriteRenderer>().sprite = st.normalSprite;
+            st.SetBlink(false);
         }
 
         // Highlight all relevant items
@@ -254,14 +254,14 @@ public class TaskManager : MonoBehaviour
                 {
                     if (items[i].itemType == Item.ItemType.Food)
                     {
-                        items[i].gameObject.GetComponent<SpriteRenderer>().sprite = items[i].highlightSprite;
+                        items[i].gameObject.GetComponent<SpriteThing>().SetBlink(true);
                     }
                 }
             }
             else if (currentTask.name == "Don't eat the sandwich")
             {
                 GameObject g = GameObject.Find("Sandwich_Interactable");
-                g.GetComponent<SpriteRenderer>().sprite = g.GetComponent<SpriteThing>().highlightSprite;
+                g.GetComponent<SpriteThing>().SetBlink(true);
             }
             else if (currentTask.name == "Don't spill drinks in the office")
             {
@@ -271,7 +271,7 @@ public class TaskManager : MonoBehaviour
                 {
                     if (items[i].itemType == Item.ItemType.Drink)
                     {
-                        items[i].gameObject.GetComponent<SpriteRenderer>().sprite = items[i].highlightSprite;
+                        items[i].gameObject.GetComponent<SpriteThing>().SetBlink(true);
                     }
                 }
             }
@@ -279,7 +279,7 @@ public class TaskManager : MonoBehaviour
             {
 
                 GameObject g = GameObject.Find("Fridge_Interactable");
-                g.GetComponent<SpriteRenderer>().sprite = g.GetComponent<SpriteThing>().highlightSprite;
+                g.GetComponent<SpriteThing>().SetBlink(true);
             }
             else if (currentTask.name == "Don't annoy other employees")
             {
@@ -287,26 +287,26 @@ public class TaskManager : MonoBehaviour
 
                 for (int i = 0; i < items.Length; i++)
                 {
-                    items[i].gameObject.GetComponent<SpriteRenderer>().sprite = items[i].highlightSprite;
+                    items[i].gameObject.GetComponent<SpriteThing>().SetBlink(true);
                 }
             }
             else if (currentTask.name == "Use the printer sparingly")
             {
 
                 GameObject g = GameObject.Find("Printer_Interactable");
-                g.GetComponent<SpriteRenderer>().sprite = g.GetComponent<SpriteThing>().highlightSprite;
+                g.GetComponent<SpriteThing>().SetBlink(true);
             }
             else if (currentTask.name == "Don't leave the tap running")
             {
 
                 GameObject g = GameObject.Find("Sink_Interactable");
-                g.GetComponent<SpriteRenderer>().sprite = g.GetComponent<SpriteThing>().highlightSprite;
+                g.GetComponent<SpriteThing>().SetBlink(true);
             }
             else if (currentTask.name == "Don't mess with the elevator")
             {
 
                 GameObject g = GameObject.Find("Elevator_Interactable");
-                g.GetComponent<SpriteRenderer>().sprite = g.GetComponent<SpriteThing>().highlightSprite;
+                g.GetComponent<SpriteThing>().SetBlink(true);
             }
             else if (currentTask.name == "Don't litter")
             {
@@ -316,7 +316,7 @@ public class TaskManager : MonoBehaviour
                 {
                     if (items[i].itemType == Item.ItemType.General || items[i].itemType == Item.ItemType.Drink || items[i].itemType == Item.ItemType.Food)
                     {
-                        items[i].gameObject.GetComponent<SpriteRenderer>().sprite = items[i].highlightSprite;
+                        items[i].gameObject.GetComponent<SpriteThing>().SetBlink(true);
                     }
                 }
             }
@@ -324,13 +324,13 @@ public class TaskManager : MonoBehaviour
             {
 
                 GameObject g = GameObject.Find("TV_Interactable");
-                g.GetComponent<SpriteRenderer>().sprite = g.GetComponent<SpriteThing>().highlightSprite;
+                g.GetComponent<SpriteThing>().SetBlink(true);
             }
             else if (currentTask.name == "Don't touch the Wi-Fi router")
             {
 
                 GameObject g = GameObject.Find("Router_Interactable");
-                g.GetComponent<SpriteRenderer>().sprite = g.GetComponent<SpriteThing>().highlightSprite;
+                g.GetComponent<SpriteThing>().SetBlink(true);
             }
             else if (currentTask.name == "Don't steal people's stuff")
             {
@@ -340,7 +340,7 @@ public class TaskManager : MonoBehaviour
                 {
                     if (items[i].itemType == Item.ItemType.Property)
                     {
-                        items[i].gameObject.GetComponent<SpriteRenderer>().sprite = items[i].highlightSprite;
+                        items[i].gameObject.GetComponent<SpriteThing>().SetBlink(true);
                     }
                 }
             }
@@ -348,7 +348,7 @@ public class TaskManager : MonoBehaviour
             {
 
                 GameObject g = GameObject.Find("Marker");
-                g.GetComponent<SpriteRenderer>().sprite = g.GetComponent<SpriteThing>().highlightSprite;
+                g.GetComponent<SpriteThing>().SetBlink(true);
             }
         }
         catch { } // kek
