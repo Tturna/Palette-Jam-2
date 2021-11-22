@@ -20,6 +20,12 @@ public class Scenes : MonoBehaviour
       {
         ChangeLevelAfterTime();
       }
+
+      if (SceneManager.GetActiveScene().name == "GameScene")
+      {
+          BgScript.instance.Audio.clip = BgScript.instance.gameplayMusic;
+          BgScript.instance.Audio.Play();
+      }
     }
 
     void Update()

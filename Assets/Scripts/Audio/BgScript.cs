@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BgScript : MonoBehaviour
 {
     public static BgScript instance;
     public AudioSource Audio;
+
+    public AudioClip menuMusic;
+    public AudioClip gameplayMusic;
 
     void Awake()
     {
@@ -16,10 +20,8 @@ public class BgScript : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(this);
-    }
-
-    void Start()
-    {
+        
         Audio = GetComponent<AudioSource>();
     }
 }
+

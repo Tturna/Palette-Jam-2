@@ -22517,6 +22517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 2091297864}
+  menuMusic: {fileID: 8300000, guid: 1e0279e3b74ef154ab8ed5f2f3dda135, type: 3}
+  gameplayMusic: {fileID: 8300000, guid: 065a491af78385547a7d0bb0b6214f96, type: 3}
 --- !u!4 &2091297866
 Transform:
   m_ObjectHideFlags: 0
