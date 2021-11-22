@@ -207,7 +207,7 @@ public class TaskManager : MonoBehaviour
         else doneTasks.Add(name);
 
         Debug.Log(name + " done!");
-        StartCoroutine(HUDManager.instance.RuleBreak(4.5f));
+        StartCoroutine(HUDManager.instance.RuleBreak(3.5f));
         tasksDone++;
         tasks.RemoveAt(0);
 

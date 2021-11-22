@@ -30,6 +30,7 @@ public class HUDManager : MonoBehaviour
         CrossOutAnimation.Play("RuleBreak");
         yield return new WaitForSeconds(breakTime);
         currentRuleText.text = taskManager.currentTask.name;
+        yield return new WaitForSeconds(1.5f);
         CrossOutAnimation.Play("Idle");
     }
 }
