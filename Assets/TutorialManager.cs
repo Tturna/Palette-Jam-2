@@ -8,8 +8,13 @@ public class TutorialManager : MonoBehaviour
     bool tutorialDone;
 
     public GameObject Prompt;
+    public GameObject anotherPrompt;
     public Sprite InteractSprite;
     public Sprite highlightSprite;
+    public Sprite upArrow;
+    public Sprite leftArrow;
+    public Sprite radio;
+
 
     void Start()
     {
@@ -23,10 +28,6 @@ public class TutorialManager : MonoBehaviour
         tutorialDone = false;
     }
 
-    void Update()
-    {
-        GetComponent<SpriteThing>().SetBlink(true);
-    }
     void OnInteract(GameObject target)
     {
         if (target.GetComponent<Interactable>().name == "Radio")
@@ -35,6 +36,15 @@ public class TutorialManager : MonoBehaviour
             BgScript.instance.Audio.clip = BgScript.instance.gameplayMusic;
             BgScript.instance.Audio.Play();
             tutorialDone = true;
+            Camera.main.GetComponent<CameraFollow>().followSpeed = 1f;
+            Prompt.GetComponent<SpriteRenderer>().sprite = leftArrow;
+            anotherPrompt.GetComponent<SpriteRenderer>().sprite = upArrow;
+            target.GetComponent<SpriteRenderer>().sprite = radio;
+        }
+
+        if (target.GetComponent<Interactable>().name == "Door")
+        {
+            target.GetComponent<Animator>().Play("Door");
         }
     }
 

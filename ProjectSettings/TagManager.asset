@@ -9,6 +9,7 @@ TagManager:
   - Interactable
   - Employee
   - InvisibleWall
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -218,8 +218,7 @@ public class TaskManager : MonoBehaviour
         // Give last task (get out)
         if (tasksDone >= totalTasks)
         {
-            currentTaskTodo.SetActive(false);
-            taskCounter.SetActive(false);
+
             endPoint.SetActive(true);
             currentTask = new Task("Get out!");
             return true;
@@ -237,6 +236,8 @@ public class TaskManager : MonoBehaviour
 
     public void EndGame()
     {
+        currentTaskTodo.SetActive(false);
+            taskCounter.SetActive(false);
         endScreen.SetActive(true);
     }
 
@@ -280,7 +281,7 @@ public class TaskManager : MonoBehaviour
                     }
                 }
             }
-            else if (currentTask.name == "Don't leave the fridge door open")
+            else if (currentTask.name == "Don't leave the fridge door open" && TaskDone("Don't mess up the whiteboard") == false)
             {
 
                 GameObject g = GameObject.Find("Fridge_Interactable");
@@ -295,13 +296,13 @@ public class TaskManager : MonoBehaviour
                     items[i].gameObject.GetComponent<SpriteThing>().SetBlink(true);
                 }
             }
-            else if (currentTask.name == "Use the printer sparingly")
+            else if (currentTask.name == "Use the printer sparingly" && TaskDone("Don't mess up the whiteboard") == false)
             {
 
                 GameObject g = GameObject.Find("Printer_Interactable");
                 g.GetComponent<SpriteThing>().SetBlink(true);
             }
-            else if (currentTask.name == "Don't leave the tap running")
+            else if (currentTask.name == "Don't leave the tap running" && TaskDone("Don't leave the tap running") == false)
             {
 
                 GameObject g = GameObject.Find("Sink_Interactable");
@@ -325,7 +326,7 @@ public class TaskManager : MonoBehaviour
                     }
                 }
             }
-            else if (currentTask.name == "Don't touch the TV")
+            else if (currentTask.name == "Don't touch the TV" && TaskDone("Don't touch the TV") == false)
             {
 
                 GameObject g = GameObject.Find("TV_Interactable");
@@ -349,7 +350,7 @@ public class TaskManager : MonoBehaviour
                     }
                 }
             }
-            else if (currentTask.name == "Don't mess up the whiteboard")
+            else if (currentTask.name == "Don't mess up the whiteboard" && TaskDone("Don't mess up the whiteboard") == false)
             {
 
                 GameObject g = GameObject.Find("Marker");

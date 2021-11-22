@@ -99,7 +99,7 @@ public class EnemyAI : MonoBehaviour
             anim.SetBool("Stunned", false);
         }
 
-        if (GameObject.FindObjectOfType<TaskManager>().tasksDone <= 0)
+        if (GameObject.FindObjectOfType<TaskManager>().tasksDone <= 0 && GameObject.FindObjectOfType<TaskManager>().tasksDone == GameObject.FindObjectOfType<TaskManager>().tasks.Count)
         {
             canMove = false;
         }else

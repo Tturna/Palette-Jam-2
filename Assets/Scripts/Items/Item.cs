@@ -18,6 +18,8 @@ public class Item : SpriteThing
     [SerializeField] AnimationCurve verticalDeltaVelocity;
     CircleCollider2D col;
 
+    bool canFly = true;
+
     // Event
     public delegate void OnItemLandHandler(GameObject item, Vector2 landPosition);
     public delegate void OnItemGrabHandler(GameObject item);
@@ -65,7 +67,7 @@ public class Item : SpriteThing
     {
         float t = 0;
 
-        while (t < duration)
+        while (t < duration && canFly)
         {
             t += Time.deltaTime;
 
@@ -95,11 +97,11 @@ public class Item : SpriteThing
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Deth();
-        if (collision.gameObject.CompareTag("InvisibleWall"))
+        if (collision.gameObject.tag == "Wall")
         {
-            Deth();
+            canFly = false;
         }
+        Deth();
     }
 
     private void OnDrawGizmosSelected()
