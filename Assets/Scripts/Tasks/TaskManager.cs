@@ -32,6 +32,9 @@ public class TaskManager : MonoBehaviour
     [SerializeField] GameObject Office;
     int numOfTimesPrinterUsed = 0;
 
+    [SerializeField] GameObject currentTaskTodo;
+    [SerializeField] GameObject taskCounter;
+
     void Start()
     {
         totalTasks = tasks.Count;
@@ -95,7 +98,7 @@ public class TaskManager : MonoBehaviour
         if (item.GetComponent<Item>().itemType == Item.ItemType.Property)
         {
             // Don't steal people's stuff done
-            TaskDone("Don't steal people's stuff");
+            if (TaskDone("Don't steal people's stuff")) SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.phoneThrow); return;
         }
     }
 
@@ -128,7 +131,7 @@ public class TaskManager : MonoBehaviour
             if (item.GetComponent<Item>().itemType == Item.ItemType.Drink)
             {
                 // Don't spill drinks in the office done
-                if (TaskDone("Don't spill drinks in the office")) return;
+                if (TaskDone("Don't spill drinks in the office")) SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.mugThrow); return;
             }
         }
         catch
@@ -215,6 +218,8 @@ public class TaskManager : MonoBehaviour
         // Give last task (get out)
         if (tasksDone >= totalTasks)
         {
+            currentTaskTodo.SetActive(false);
+            taskCounter.SetActive(false);
             endPoint.SetActive(true);
             currentTask = new Task("Get out!");
             return true;

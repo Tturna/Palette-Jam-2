@@ -7,6 +7,10 @@ public class TutorialManager : MonoBehaviour
 {
     bool tutorialDone;
 
+    public GameObject Prompt;
+    public Sprite InteractSprite;
+    public Sprite highlightSprite;
+
     void Start()
     {
         Interactable[] inter = FindObjectsOfType<Interactable>();
@@ -19,6 +23,10 @@ public class TutorialManager : MonoBehaviour
         tutorialDone = false;
     }
 
+    void Update()
+    {
+        GetComponent<SpriteThing>().SetBlink(true);
+    }
     void OnInteract(GameObject target)
     {
         if (target.GetComponent<Interactable>().name == "Radio")

@@ -13,7 +13,7 @@ public class Scenes : MonoBehaviour
 
     public static Scenes instance;
 
-    void Awake()
+    void Start()
     {
       instance = this;
       if(changeAfterTime == true)

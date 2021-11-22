@@ -17,6 +17,10 @@ public class SfxManager : MonoBehaviour
     public List<AudioClip> WinSounds;
     public AudioClip sandvich;
 
+    public AudioClip mugThrow;
+    public AudioClip plantThrow;
+    public AudioClip phoneThrow;
+
     [Header("All")]
     public List<AudioClip> AudioClips;
     

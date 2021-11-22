@@ -53,6 +53,11 @@ public class Item : SpriteThing
         // Change layer so it doesn't collide with the player
         gameObject.layer = 6;
 
+        if (itemType == Item.ItemType.General)
+        {
+            SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.plantThrow);
+        }
+
         StartCoroutine(Fly(flightTime, yeetDirection));
     }
 
