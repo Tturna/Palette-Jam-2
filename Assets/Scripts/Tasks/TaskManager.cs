@@ -207,7 +207,7 @@ public class TaskManager : MonoBehaviour
         else doneTasks.Add(name);
 
         Debug.Log(name + " done!");
-        StartCoroutine(HUDManager.instance.RuleBreak(3f));
+        StartCoroutine(HUDManager.instance.RuleBreak(4.5f));
         tasksDone++;
         tasks.RemoveAt(0);
 
@@ -289,12 +289,6 @@ public class TaskManager : MonoBehaviour
                 {
                     items[i].gameObject.GetComponent<SpriteRenderer>().sprite = items[i].highlightSprite;
                 }
-            }
-            else if (currentTask.name == "Don't play loud music")
-            {
-
-                GameObject g = GameObject.Find("Radio_Interactable");
-                g.GetComponent<SpriteRenderer>().sprite = g.GetComponent<SpriteThing>().highlightSprite;
             }
             else if (currentTask.name == "Use the printer sparingly")
             {

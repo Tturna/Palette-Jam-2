@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 219230664}
   - component: {fileID: 219230663}
   m_Layer: 0
-  m_Name: Interactable Printer
+  m_Name: Printer_Interactable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1413,7 +1413,7 @@ GameObject:
   - component: {fileID: 356637542}
   - component: {fileID: 356637541}
   m_Layer: 0
-  m_Name: Interactable TV
+  m_Name: TV_Interactable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2723,7 +2723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8031328443953931484, guid: 66c25801f8a2d4948aceb665f2d5be3c, type: 3}
       propertyPath: m_Name
-      value: Prop
+      value: Marker
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66c25801f8a2d4948aceb665f2d5be3c, type: 3}
@@ -3105,7 +3105,7 @@ GameObject:
   - component: {fileID: 833044465}
   - component: {fileID: 833044464}
   m_Layer: 8
-  m_Name: Interactable Fridge
+  m_Name: Fridge_Interactable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3580,7 +3580,7 @@ GameObject:
   - component: {fileID: 1058223243}
   - component: {fileID: 1058223242}
   m_Layer: 0
-  m_Name: Interactable Router
+  m_Name: Router_Interactable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3974,7 +3974,7 @@ GameObject:
   - component: {fileID: 1129007359}
   - component: {fileID: 1129007358}
   m_Layer: 0
-  m_Name: Interactable Elevator
+  m_Name: Elevator_Interactable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18867,7 +18867,7 @@ GameObject:
   - component: {fileID: 1798070520}
   - component: {fileID: 1798070519}
   m_Layer: 0
-  m_Name: Interactable Tap
+  m_Name: Sink_Interactable
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
