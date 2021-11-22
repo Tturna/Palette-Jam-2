@@ -678,7 +678,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 17.5029, y: -0.00000066682696}
+  m_AnchoredPosition: {x: 17.50293, y: -0.00000066682696}
   m_SizeDelta: {x: 35.0058, y: 36.7098}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &125886605
@@ -764,6 +764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c65f856069b4040aa71471a99db91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: -2174818145855125461, guid: aef0dd5c9abec4740890592bae70e168, type: 3}
   name: Printer
 --- !u!58 &219230664
 CircleCollider2D:
@@ -954,6 +956,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c65f856069b4040aa71471a99db91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: 5121332796733570063, guid: da0bc9af0ca30d245b5bcd0181627a57, type: 3}
   name: TheSandwich
 --- !u!58 &232514613
 CircleCollider2D:
@@ -1441,6 +1445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c65f856069b4040aa71471a99db91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: 2177596595858655531, guid: e7a699927d983e448b733b9dee0e5e7b, type: 3}
   name: TV
 --- !u!58 &356637542
 CircleCollider2D:
@@ -1822,6 +1828,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b781755f1de2e40860f8239fe6da6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: -7955193268978623404, guid: 176a9bb08e247f84e8774150065186e5, type: 3}
   itemType: 0
   pickUpRange: 1.5
   flightTime: 0.3
@@ -2078,7 +2086,7 @@ MonoBehaviour:
   - name: Don't eat the sandvich
   - name: Don't spill drinks in the office
   - name: Don't leave the fridge door open
-  - name: don't run in the office
+  - name: Don't run in the office
   - name: Don't annoy other employees
   - name: Don't play loud music
   - name: Use the printer sparingly
@@ -2655,6 +2663,10 @@ PrefabInstance:
       propertyPath: itemType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8031328443953931481, guid: 66c25801f8a2d4948aceb665f2d5be3c, type: 3}
+      propertyPath: highlightSprite
+      value: 
+      objectReference: {fileID: 1146363979526003962, guid: a56937bac1425d24e80e8ce9394aaaaf, type: 3}
     - target: {fileID: 8031328443953931482, guid: 66c25801f8a2d4948aceb665f2d5be3c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3147,6 +3159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c65f856069b4040aa71471a99db91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: -6026158435268871439, guid: efa7a5cf55a36114ea12fffda2e9c560, type: 3}
   name: Fridge
 --- !u!58 &833044465
 CircleCollider2D:
@@ -3226,6 +3240,10 @@ PrefabInstance:
       propertyPath: itemType
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8031328443953931481, guid: 66c25801f8a2d4948aceb665f2d5be3c, type: 3}
+      propertyPath: highlightSprite
+      value: 
+      objectReference: {fileID: 6778424840077107658, guid: ab2d47c9e076a94468294255c93f9707, type: 3}
     - target: {fileID: 8031328443953931482, guid: 66c25801f8a2d4948aceb665f2d5be3c, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -3616,6 +3634,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c65f856069b4040aa71471a99db91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: 7897956151022109737, guid: e98aa693a1db5b04aa143bd1f600a5dc, type: 3}
   name: Router
 --- !u!58 &1058223243
 CircleCollider2D:
@@ -4008,6 +4028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c65f856069b4040aa71471a99db91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: 0}
   name: Elevator
 --- !u!58 &1129007359
 CircleCollider2D:
@@ -17343,6 +17365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b781755f1de2e40860f8239fe6da6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: -7955193268978623404, guid: 176a9bb08e247f84e8774150065186e5, type: 3}
   itemType: 0
   pickUpRange: 1.5
   flightTime: 0.3
@@ -17655,6 +17679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c65f856069b4040aa71471a99db91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: 6024717204825164481, guid: 930a4b9ed9824ae419f5b80e44a337ba, type: 3}
   name: Radio
 --- !u!58 &1476951924
 CircleCollider2D:
@@ -17843,6 +17869,10 @@ PrefabInstance:
       propertyPath: itemType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7161093179001219665, guid: f59f275c06c522c42ab34968b517ee5e, type: 3}
+      propertyPath: highlightSprite
+      value: 
+      objectReference: {fileID: 1804004588942022318, guid: 92a6b21dd6692e74e8f71fcf11edbe58, type: 3}
     - target: {fileID: 7161093179001219666, guid: f59f275c06c522c42ab34968b517ee5e, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -18055,6 +18085,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b781755f1de2e40860f8239fe6da6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: -7955193268978623404, guid: 176a9bb08e247f84e8774150065186e5, type: 3}
   itemType: 0
   pickUpRange: 1.5
   flightTime: 0.3
@@ -18795,6 +18827,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39c65f856069b4040aa71471a99db91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: 1711358391253332428, guid: aa56d06cf172b884e96cc911f84a8c33, type: 3}
   name: Tap
 --- !u!58 &1798070520
 CircleCollider2D:
@@ -22244,6 +22278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b781755f1de2e40860f8239fe6da6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalSprite: {fileID: 0}
+  highlightSprite: {fileID: -7955193268978623404, guid: 176a9bb08e247f84e8774150065186e5, type: 3}
   itemType: 0
   pickUpRange: 1.5
   flightTime: 0.3
