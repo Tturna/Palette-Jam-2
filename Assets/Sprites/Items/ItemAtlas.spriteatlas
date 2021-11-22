@@ -44,7 +44,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: bb5b24d957ea76a4faf372297dd0339d, type: 3}
-    totalSpriteSurfaceArea: 5646644
+    totalSpriteSurfaceArea: 5646788
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -220,6 +220,7 @@ SpriteAtlas:
   - {fileID: 7435400164358253640, guid: 8945c88d100914044808ee745d96da76, type: 3}
   - {fileID: 1420622050831371334, guid: 8945c88d100914044808ee745d96da76, type: 3}
   - {fileID: 21300000, guid: 1b26a11e65de2b6438a680a2b8695e86, type: 3}
+  - {fileID: 21300000, guid: 44cb853ea8c023546bef90780ad2a428, type: 3}
   - {fileID: -1986636914909277485, guid: d428926e8ecde684abfcbbf4e3f67037, type: 3}
   - {fileID: -5251038005742033881, guid: d428926e8ecde684abfcbbf4e3f67037, type: 3}
   - {fileID: -6784003235226906469, guid: 9610d39e6690c2b44806efe61a0d976d, type: 3}
@@ -408,6 +409,7 @@ SpriteAtlas:
   - transition_tomask-Sheet_3
   - transition_tomask-Sheet_2
   - painting_tree
+  - right_arrow 1
   - trashcan_0
   - trashcan_1
   - player_notholding_walk_0
