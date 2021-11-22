@@ -91,6 +91,10 @@ public class Item : SpriteThing
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Deth();
+        if (collision.gameObject.CompareTag("InvisibleWall"))
+        {
+            Deth();
+        }
     }
 
     private void OnDrawGizmosSelected()

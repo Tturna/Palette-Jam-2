@@ -30,6 +30,7 @@ public class TaskManager : MonoBehaviour
     [HideInInspector] public int tasksDone;
     [HideInInspector] public int totalTasks;
     [SerializeField] GameObject Office;
+    int numOfTimesPrinterUsed = 0;
 
     void Start()
     {
@@ -105,7 +106,8 @@ public class TaskManager : MonoBehaviour
             if (item.GetComponent<Item>().itemType == Item.ItemType.Food && (pos - (Vector2)GameObject.Find("point_programmers").transform.position).magnitude < 3)
             {
                 // Don't feed the programmers done
-                if (TaskDone("Don't feed the programmers")) return;
+                int rand = Random.Range(0,SfxManager.instance.EmployeesCursing.Count);
+                if (TaskDone("Don't feed the programmers")) GameObject.FindGameObjectWithTag("Employee").GetComponent<Animator>().Play("Employee_Angry");  SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.EmployeesCursing[rand]); return;
             }
             if (item.GetComponent<Item>().itemType == Item.ItemType.Marker && (pos - (Vector2)GameObject.Find("point_whiteboard").transform.position).magnitude < 3)
             {
@@ -120,7 +122,8 @@ public class TaskManager : MonoBehaviour
             if ((pos - (Vector2)GameObject.Find("point_employees").transform.position).magnitude < 3)
             {
                 // Don't annoy other employees done
-                if (TaskDone("Don't annoy other employees")) return;
+                int rand = Random.Range(0,SfxManager.instance.EmployeesCursing.Count);
+                if (TaskDone("Don't annoy other employees")) GameObject.FindGameObjectWithTag("Employee").GetComponent<Animator>().Play("Employee_Angry"); SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.EmployeesCursing[rand]); return;
             }
             if (item.GetComponent<Item>().itemType == Item.ItemType.Drink)
             {
@@ -147,15 +150,18 @@ public class TaskManager : MonoBehaviour
             TaskDone("Don't leave the fridge door open");
             Office.GetComponent<Animator>().Play("Fridge");
         }
-        else if (target.GetComponent<Interactable>().name == "Radio")
-        {
-            // Don't play loud music done
-            TaskDone("Don't play loud music");
-        }
         else if (target.GetComponent<Interactable>().name == "Printer")
         {
-            // Use the printer sparingly done
-            TaskDone("Use the printer sparingly");
+
+            numOfTimesPrinterUsed++;
+            Office.GetComponent<Animator>().Play("Printer");
+
+            if (numOfTimesPrinterUsed >= 2)
+            {
+                // Use the printer sparingly done
+                TaskDone("Use the printer sparingly");
+            }
+            
         }
         else if (target.GetComponent<Interactable>().name == "Tap")
         {
@@ -201,6 +207,7 @@ public class TaskManager : MonoBehaviour
         else doneTasks.Add(name);
 
         Debug.Log(name + " done!");
+        StartCoroutine(HUDManager.instance.RuleBreak(3f));
         tasksDone++;
         tasks.RemoveAt(0);
 
@@ -220,9 +227,6 @@ public class TaskManager : MonoBehaviour
         int rand = Random.Range(0, SfxManager.instance.WinSounds.Count);
 
         SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.WinSounds[rand]);
-
-        HUDManager.instance.CrossOutAnimation.Play("RuleBreak");
-
         return true;
     }
 
@@ -316,7 +320,7 @@ public class TaskManager : MonoBehaviour
 
                 for (int i = 0; i < items.Length; i++)
                 {
-                    if (items[i].itemType == Item.ItemType.Food || items[i].itemType == Item.ItemType.Drink)
+                    if (items[i].itemType == Item.ItemType.General || items[i].itemType == Item.ItemType.Drink || items[i].itemType == Item.ItemType.Food)
                     {
                         items[i].gameObject.GetComponent<SpriteRenderer>().sprite = items[i].highlightSprite;
                     }

@@ -16,13 +16,20 @@ public class HUDManager : MonoBehaviour
     {
         taskManager = GameObject.FindObjectOfType<TaskManager>();
         instance = this;
+        currentRuleText.text = taskManager.currentTask.name;
     }
 
     void Update()
     {
-        currentRuleText.text = taskManager.currentTask.name;
-
         tasksDone = taskManager.tasksDone;
         tasksDoneCounter.text = "(" + tasksDone + "/" + taskManager.totalTasks + ")";
+    }
+
+    public IEnumerator RuleBreak(float breakTime)
+    {
+        CrossOutAnimation.Play("RuleBreak");
+        yield return new WaitForSeconds(breakTime);
+        currentRuleText.text = taskManager.currentTask.name;
+        CrossOutAnimation.Play("Idle");
     }
 }

@@ -21,10 +21,9 @@ public class Scenes : MonoBehaviour
         ChangeLevelAfterTime();
       }
 
-      if (SceneManager.GetActiveScene().name == "GameScene")
+      if (SceneManager.GetActiveScene().name == "Tutorial")
       {
-          BgScript.instance.Audio.clip = BgScript.instance.gameplayMusic;
-          BgScript.instance.Audio.Play();
+          BgScript.instance.Audio.clip = null;
       }
     }
 
