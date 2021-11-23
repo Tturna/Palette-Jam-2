@@ -6,6 +6,7 @@ using UnityEngine;
 public class Task
 {
     public string name;
+    [HideInInspector] public bool isCompleted;
 
     public Task () { }
 
@@ -162,7 +163,7 @@ public class TaskManager : MonoBehaviour
             if (numOfTimesPrinterUsed >= 2)
             {
                 // Use the printer sparingly done
-                TaskDone("Use the printer sparingly");
+                TaskDone("Use the printer sparingly 2x");
             }
             
         }
@@ -213,6 +214,7 @@ public class TaskManager : MonoBehaviour
         StartCoroutine(HUDManager.instance.RuleBreak(3.5f));
         tasksDone++;
         tasks.RemoveAt(0);
+        currentTask.isCompleted = true;
 
         // Everything done
         // Give last task (get out)
@@ -281,7 +283,7 @@ public class TaskManager : MonoBehaviour
                     }
                 }
             }
-            else if (currentTask.name == "Don't leave the fridge door open" && TaskDone("Don't mess up the whiteboard") == false)
+            else if (currentTask.name == "Don't leave the fridge door open")
             {
 
                 GameObject g = GameObject.Find("Fridge_Interactable");
@@ -296,13 +298,13 @@ public class TaskManager : MonoBehaviour
                     items[i].gameObject.GetComponent<SpriteThing>().SetBlink(true);
                 }
             }
-            else if (currentTask.name == "Use the printer sparingly" && TaskDone("Don't mess up the whiteboard") == false)
+            else if (currentTask.name == "Use the printer sparingly")
             {
 
                 GameObject g = GameObject.Find("Printer_Interactable");
                 g.GetComponent<SpriteThing>().SetBlink(true);
             }
-            else if (currentTask.name == "Don't leave the tap running" && TaskDone("Don't leave the tap running") == false)
+            else if (currentTask.name == "Don't leave the tap running")
             {
 
                 GameObject g = GameObject.Find("Sink_Interactable");

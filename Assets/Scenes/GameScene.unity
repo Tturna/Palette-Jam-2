@@ -2437,22 +2437,38 @@ MonoBehaviour:
   endScreen: {fileID: 1271259169}
   tasks:
   - name: Don't feed the programmers
+    isCompleted: 0
   - name: Don't let the dog free
+    isCompleted: 0
   - name: Don't eat the sandvich
+    isCompleted: 0
   - name: Don't spill drinks in the office
+    isCompleted: 0
   - name: Don't leave the fridge door open
+    isCompleted: 0
   - name: Don't run in the office
+    isCompleted: 0
   - name: Don't annoy other employees
-  - name: Use the printer sparingly
+    isCompleted: 0
+  - name: Use the printer sparingly 2x
+    isCompleted: 0
   - name: Don't leave the tap running
+    isCompleted: 0
   - name: Don't mess with the elevator
+    isCompleted: 0
   - name: Don't litter
+    isCompleted: 0
   - name: Don't touch the TV
+    isCompleted: 0
   - name: Don't touch the Wi-Fi router
+    isCompleted: 0
   - name: Don't steal people's stuff
+    isCompleted: 0
   - name: Don't mess up the whiteboard
+    isCompleted: 0
   currentTask:
     name: 
+    isCompleted: 0
   tasksDone: 0
   totalTasks: 0
   Office: {fileID: 1466007063}
@@ -2485,7 +2501,7 @@ GameObject:
   - component: {fileID: 578526486}
   m_Layer: 0
   m_Name: Door (1)
-  m_TagString: Finish
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4229,6 +4245,7 @@ MonoBehaviour:
   canMove: 0
   enemySprite: {fileID: 1654223338}
   stunTime: 2.5
+  canCatch: 1
   anim: {fileID: 1087010293}
 --- !u!58 &1087010296
 CircleCollider2D:
@@ -18287,8 +18304,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540144398}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.4, y: -3.52, z: 0}
-  m_LocalScale: {x: 7, y: 23, z: 1}
+  m_LocalPosition: {x: 42.05, y: -3.52, z: 0}
+  m_LocalScale: {x: 30, y: 23, z: 1}
   m_Children: []
   m_Father: {fileID: 1466007064}
   m_RootOrder: 19
@@ -18665,8 +18682,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645822362}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -16.13, z: 0}
-  m_LocalScale: {x: 55, y: 2, z: 1}
+  m_LocalPosition: {x: 0, y: -29.97, z: 0}
+  m_LocalScale: {x: 55, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 1466007064}
   m_RootOrder: 17
@@ -18804,8 +18821,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684100996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.9, y: -3.52, z: 0}
-  m_LocalScale: {x: 7, y: 23, z: 1}
+  m_LocalPosition: {x: -37.02, y: -3.52, z: 0}
+  m_LocalScale: {x: 20, y: 23, z: 1}
   m_Children: []
   m_Father: {fileID: 1466007064}
   m_RootOrder: 43
@@ -19352,7 +19369,7 @@ GameObject:
   - component: {fileID: 1913070147}
   m_Layer: 8
   m_Name: Wall
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

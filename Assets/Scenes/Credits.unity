@@ -250,6 +250,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Audio: {fileID: 485588314}
+  menuMusic: {fileID: 0}
+  gameplayMusic: {fileID: 0}
 --- !u!4 &485588316
 Transform:
   m_ObjectHideFlags: 0
@@ -535,6 +537,7 @@ GameObject:
   - component: {fileID: 1698077639}
   - component: {fileID: 1698077641}
   - component: {fileID: 1698077640}
+  - component: {fileID: 1698077642}
   m_Layer: 0
   m_Name: creditscard (2)
   m_TagString: Untagged
@@ -574,14 +577,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.85098046, g: 0.85098046, b: 0.80392164, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5fc5d5ea765db414bbf2b12cfce53319, type: 3}
+  m_Sprite: {fileID: 909454856004693264, guid: a84c1b5faf102b040bee65eea331fda8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -599,6 +602,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1698077638}
   m_CullTransparentMesh: 1
+--- !u!114 &1698077642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698077638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 2
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 909454856004693264, guid: a84c1b5faf102b040bee65eea331fda8, type: 3}
+    m_PressedSprite: {fileID: -4399668622466187505, guid: a84c1b5faf102b040bee65eea331fda8, type: 3}
+    m_SelectedSprite: {fileID: 909454856004693264, guid: a84c1b5faf102b040bee65eea331fda8, type: 3}
+    m_DisabledSprite: {fileID: -4399668622466187505, guid: a84c1b5faf102b040bee65eea331fda8, type: 3}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1698077640}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1655451383}
+        m_TargetAssemblyTypeName: Scenes, Assembly-CSharp
+        m_MethodName: SelectScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Menu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1733457304
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +789,10 @@ MonoBehaviour:
   ManagerChasingPlayer: []
   EmployeesCursing: []
   WinSounds: []
+  sandvich: {fileID: 0}
+  mugThrow: {fileID: 0}
+  plantThrow: {fileID: 0}
+  phoneThrow: {fileID: 0}
   AudioClips: []
 --- !u!4 &1733457307
 Transform:
