@@ -37,7 +37,6 @@ public class TutorialManager : MonoBehaviour
             BgScript.instance.Audio.Play();
             tutorialDone = true;
             Camera.main.GetComponent<CameraFollow>().followSpeed = 1f;
-            Prompt.GetComponent<SpriteRenderer>().sprite = leftArrow;
             anotherPrompt.GetComponent<SpriteRenderer>().sprite = upArrow;
             target.GetComponent<SpriteRenderer>().sprite = radio;
         }

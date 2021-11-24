@@ -25,7 +25,17 @@ public class Scenes : MonoBehaviour
       {
           BgScript.instance.Audio.clip = null;
       }
-    }
+
+      if (SceneManager.GetActiveScene().name == "GameScene")
+      {
+        BgScript.instance.Audio.clip = null;
+          BgScript.instance.Audio.clip = BgScript.instance.gameplayMusic;
+      }else
+      {
+        BgScript.instance.Audio.clip = null;
+        BgScript.instance.Audio.clip = BgScript.instance.menuMusic;
+      }
+      }
 
     void Update()
     {
@@ -61,6 +71,7 @@ public class Scenes : MonoBehaviour
     IEnumerator Transition(int scene)
     {
       transitionAnim.SetTrigger("end");
+      SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.click);
       yield return new WaitForSeconds(waitTime);
       SceneManager.LoadSceneAsync(scene);
     }

@@ -99,16 +99,9 @@ public class Item : SpriteThing
     {
         if (collision.gameObject.tag == "Wall")
         {
-            canFly = false;
             Deth();
-        }
-        
+        }   
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        canFly = true;
-    }
-
 
     private void OnDrawGizmosSelected()
     {

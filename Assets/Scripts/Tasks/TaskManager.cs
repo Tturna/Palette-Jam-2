@@ -107,28 +107,36 @@ public class TaskManager : MonoBehaviour
     {
         try
         {
-            if (item.GetComponent<Item>().itemType == Item.ItemType.Food && (pos - (Vector2)GameObject.Find("point_programmers").transform.position).magnitude < 3)
+            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Point Programmers").Length; i++)
             {
-                // Don't feed the programmers done
-                int rand = Random.Range(0,SfxManager.instance.EmployeesCursing.Count);
-                if (TaskDone("Don't feed the programmers")) GameObject.FindGameObjectWithTag("Employee").GetComponent<Animator>().Play("Employee_Angry");  SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.EmployeesCursing[rand]); return;
+                if (item.GetComponent<Item>().itemType == Item.ItemType.Food && (pos - (Vector2)GameObject.FindGameObjectsWithTag("Point Programmers")[i].transform.position).magnitude < 5)
+                {
+                    // Don't feed the programmers done
+                    int rand = Random.Range(0,SfxManager.instance.EmployeesCursing.Count);
+                    if (TaskDone("Don't feed the programmers")) GameObject.FindGameObjectWithTag("Employee").GetComponent<Animator>().Play("Employee_Angry");  SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.EmployeesCursing[rand]); item.SetActive(false); return;
+                }
             }
-            if (item.GetComponent<Item>().itemType == Item.ItemType.Marker && (pos - (Vector2)GameObject.Find("point_whiteboard").transform.position).magnitude < 3)
+            if (item.GetComponent<Item>().itemType == Item.ItemType.Marker && (pos - (Vector2)GameObject.Find("point_whiteboard").transform.position).magnitude < 5)
             {
                 // Don't mess up the whiteboard done
                 if (TaskDone("Don't mess up the whiteboard")) Office.GetComponent<Animator>().Play("Whiteboard"); return;
             }
-            if (item.GetComponent<Item>().itemType == Item.ItemType.Food || item.GetComponent<Item>().itemType == Item.ItemType.Drink)
+            if (item.GetComponent<Item>().itemType == Item.ItemType.General)
             {
                 // Don't litter done
-                if (TaskDone("Don't litter")) return;
+                if (TaskDone("Don't litter")) item.SetActive(false); return;
             }
-            if ((pos - (Vector2)GameObject.Find("point_employees").transform.position).magnitude < 3)
+
+            for (int i = 0; i < GameObject.FindGameObjectsWithTag("Point Employee").Length; i++)
             {
-                // Don't annoy other employees done
-                int rand = Random.Range(0,SfxManager.instance.EmployeesCursing.Count);
-                if (TaskDone("Don't annoy other employees")) GameObject.FindGameObjectWithTag("Employee").GetComponent<Animator>().Play("Employee_Angry"); SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.EmployeesCursing[rand]); return;
+              if ((pos - (Vector2)GameObject.FindGameObjectsWithTag("Point Employee")[i].transform.position).magnitude < 5)
+                {
+                    // Don't annoy other employees done
+                    int rand = Random.Range(0,SfxManager.instance.EmployeesCursing.Count);
+                    if (TaskDone("Don't annoy other employees")) GameObject.FindGameObjectWithTag("Employee").GetComponent<Animator>().Play("Employee_Angry"); SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.EmployeesCursing[rand]); return;
+                }  
             }
+            
             if (item.GetComponent<Item>().itemType == Item.ItemType.Drink)
             {
                 // Don't spill drinks in the office done
@@ -188,12 +196,16 @@ public class TaskManager : MonoBehaviour
             // Don't eat the sandwich done
             TaskDone("Don't eat the sandvich");
             SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.sandvich);
+            target.SetActive(false);
         }
         else if (target.GetComponent<Interactable>().name == "Doge")
         {
             // Don't let the dog free done
             TaskDone("Don't let the dog free");
             target.GetComponent<Doge>().FuckingZoom();
+        }else if(target.GetComponent<Interactable>().name == "Door")
+        {
+            TaskDone("Get out!");
         }
 
         Debug.Log("Interact");
@@ -220,9 +232,9 @@ public class TaskManager : MonoBehaviour
         // Give last task (get out)
         if (tasksDone >= totalTasks)
         {
-
             endPoint.SetActive(true);
             currentTask = new Task("Get out!");
+            UpdateItemHighlights();
             return true;
         }
 
@@ -322,13 +334,13 @@ public class TaskManager : MonoBehaviour
 
                 for (int i = 0; i < items.Length; i++)
                 {
-                    if (items[i].itemType == Item.ItemType.General || items[i].itemType == Item.ItemType.Drink || items[i].itemType == Item.ItemType.Food)
+                    if (items[i].itemType == Item.ItemType.General)
                     {
                         items[i].gameObject.GetComponent<SpriteThing>().SetBlink(true);
                     }
                 }
             }
-            else if (currentTask.name == "Don't touch the TV" && TaskDone("Don't touch the TV") == false)
+            else if (currentTask.name == "Don't touch the TV")
             {
 
                 GameObject g = GameObject.Find("TV_Interactable");
@@ -352,10 +364,15 @@ public class TaskManager : MonoBehaviour
                     }
                 }
             }
-            else if (currentTask.name == "Don't mess up the whiteboard" && TaskDone("Don't mess up the whiteboard") == false)
+            else if (currentTask.name == "Don't mess up the whiteboard")
             {
 
                 GameObject g = GameObject.Find("Marker");
+                g.GetComponent<SpriteThing>().SetBlink(true);
+            }else if (currentTask.name == "Get out!")
+            {
+                Debug.Log("Last Task");
+                GameObject g = GameObject.Find("Door_Interactable");
                 g.GetComponent<SpriteThing>().SetBlink(true);
             }
         }

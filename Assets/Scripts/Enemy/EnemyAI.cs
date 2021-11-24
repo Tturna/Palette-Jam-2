@@ -100,7 +100,7 @@ public class EnemyAI : MonoBehaviour
             anim.SetBool("Stunned", false);
         }
 
-        if (GameObject.FindObjectOfType<TaskManager>().tasksDone <= 0 && GameObject.FindObjectOfType<TaskManager>().tasksDone <= GameObject.FindObjectOfType<TaskManager>().totalTasks)
+        if (GameObject.FindObjectOfType<TaskManager>().tasksDone == 0 || GameObject.FindObjectOfType<TaskManager>().tasksDone == GameObject.FindObjectOfType<TaskManager>().totalTasks)
         {
             canMove = false;
         }else
@@ -131,10 +131,7 @@ public class EnemyAI : MonoBehaviour
     {
         if(other.gameObject.tag == "Pickup")
         {
-            if (other.gameObject.GetComponent<Rigidbody2D>().velocity.x != 0 || other.gameObject.GetComponent<Rigidbody2D>().velocity.y != 0)
-            {
-              StunEnemy();  
-            }
+            StunEnemy();  
         }
     }
 

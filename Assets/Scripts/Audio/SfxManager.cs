@@ -20,6 +20,7 @@ public class SfxManager : MonoBehaviour
     public AudioClip mugThrow;
     public AudioClip plantThrow;
     public AudioClip phoneThrow;
+    public AudioClip click;
 
     [Header("All")]
     public List<AudioClip> AudioClips;
@@ -41,5 +42,11 @@ public class SfxManager : MonoBehaviour
         AudioClips.AddRange(ManagerChasingPlayer);
         AudioClips.AddRange(EmployeesCursing);
         AudioClips.AddRange(WinSounds);
+        AudioClips.Add(mugThrow);
+        AudioClips.Add(plantThrow);
+        AudioClips.Add(phoneThrow);
+        AudioClips.Add(phoneThrow);
+        AudioClips.Add(click);
+        AudioClips.Add(sandvich);
     }
 }

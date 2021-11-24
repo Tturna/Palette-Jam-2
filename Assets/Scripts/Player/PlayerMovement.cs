@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = sprintSpeed;
         }
-        if(Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        if(Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
         {
             moveSpeed = speed;
         }

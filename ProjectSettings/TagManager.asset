@@ -10,6 +10,8 @@ TagManager:
   - Employee
   - InvisibleWall
   - Wall
+  - Point Employee
+  - Point Programmers
   layers:
   - Default
   - TransparentFX

@@ -33,6 +33,7 @@ public class InteractionManager : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Finish"))
         {
+            GetComponent<PlayerMovement>().canMove = false;
             FindObjectOfType<TaskManager>().EndGame();
         }
     }

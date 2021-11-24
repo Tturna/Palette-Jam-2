@@ -44,7 +44,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: bb5b24d957ea76a4faf372297dd0339d, type: 3}
-    totalSpriteSurfaceArea: 5646788
+    totalSpriteSurfaceArea: 5648972
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -75,6 +75,7 @@ SpriteAtlas:
   - {fileID: 2975791350614064349, guid: eb857693ec880024ba47f77a1981058e, type: 3}
   - {fileID: 7897956151022109737, guid: e98aa693a1db5b04aa143bd1f600a5dc, type: 3}
   - {fileID: 4837133371341156092, guid: e98aa693a1db5b04aa143bd1f600a5dc, type: 3}
+  - {fileID: 21300000, guid: e41a94b3e0757f241a1826297f3d47ee, type: 3}
   - {fileID: 6495718189872017935, guid: 87285c54f551ed446aaa0a2941859d6d, type: 3}
   - {fileID: 5802036049879401569, guid: 87285c54f551ed446aaa0a2941859d6d, type: 3}
   - {fileID: -906029365395904993, guid: 87285c54f551ed446aaa0a2941859d6d, type: 3}
@@ -165,6 +166,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 20aa14787757cdf47917213b08e159ac, type: 3}
   - {fileID: 2868539044483428322, guid: 67a679783e3984848ac5e726953a13b9, type: 3}
   - {fileID: -5107677499478342438, guid: 67a679783e3984848ac5e726953a13b9, type: 3}
+  - {fileID: 21300000, guid: 253179e87ec5c614b94951ee322c6577, type: 3}
   - {fileID: 21300000, guid: b2654519f3ae55d47b474cefcb97690d, type: 3}
   - {fileID: -4531776028620508870, guid: 5448a129d21a9e541864d51b14953f29, type: 3}
   - {fileID: 445879859030590809, guid: 5448a129d21a9e541864d51b14953f29, type: 3}
@@ -195,6 +197,7 @@ SpriteAtlas:
   - {fileID: -1163504838602118676, guid: 6a8321abf6fff22449852a06ee6778a9, type: 3}
   - {fileID: -4866498303978309091, guid: afea01cb13f511641bcb8d5c69c3c77e, type: 3}
   - {fileID: 7729800342241047944, guid: afea01cb13f511641bcb8d5c69c3c77e, type: 3}
+  - {fileID: 21300000, guid: f105d5cb0cb3c4c46a9f4d9ebc672851, type: 3}
   - {fileID: 21300000, guid: aef1cbeb98fbdee408047b21864efd16, type: 3}
   - {fileID: -4212027707405927793, guid: 3b5e094c73ecc9e478ac5a82cf391343, type: 3}
   - {fileID: 7406472308500515207, guid: 3b5e094c73ecc9e478ac5a82cf391343, type: 3}
@@ -264,6 +267,7 @@ SpriteAtlas:
   - sink_open_3
   - router_1
   - router_0
+  - Don't play loud music
   - door_open_4
   - door_open_3
   - door_open_2
@@ -354,6 +358,7 @@ SpriteAtlas:
   - painting_dragon
   - wall_0
   - wall_1
+  - designers
   - f_key
   - employee_idle_1
   - employee_idle_0
@@ -384,6 +389,7 @@ SpriteAtlas:
   - crate_0
   - manager_idle_0
   - manager_idle_1
+  - programmer
   - banner
   - laptop_0
   - laptop_1
