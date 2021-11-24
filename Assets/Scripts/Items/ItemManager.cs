@@ -33,9 +33,9 @@ public class ItemManager : MonoBehaviour
             if (isCarrying) ThrowItem(); else PickUpItem();
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && isCarrying)
         {
-            if(isCarrying) isCarrying = false;
+            isCarrying = false;
             // Just placing it down without yeeting it
             carriedItem.transform.SetParent(null);
         }

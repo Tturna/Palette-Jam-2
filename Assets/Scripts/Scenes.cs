@@ -20,21 +20,23 @@ public class Scenes : MonoBehaviour
       {
         ChangeLevelAfterTime();
       }
+        if (BgScript.instance != null)
+        {
 
-      if (SceneManager.GetActiveScene().name == "Tutorial")
-      {
-          BgScript.instance.Audio.clip = null;
-      }
+          if (SceneManager.GetActiveScene().name == "Tutorial")
+          {
+              BgScript.instance.Audio.clip = null;
+          }
 
-      if (SceneManager.GetActiveScene().name == "GameScene")
-      {
-        BgScript.instance.Audio.clip = null;
-          BgScript.instance.Audio.clip = BgScript.instance.gameplayMusic;
-      }else
-      {
-        BgScript.instance.Audio.clip = null;
-        BgScript.instance.Audio.clip = BgScript.instance.menuMusic;
-      }
+          if (SceneManager.GetActiveScene().name == "GameScene")
+          {
+              BgScript.instance.Audio.clip = BgScript.instance.gameplayMusic;
+          }else if(SceneManager.GetActiveScene().name != "GameScene" && SceneManager.GetActiveScene().name != "Tutorial")
+          {
+            BgScript.instance.Audio.clip = BgScript.instance.menuMusic;
+            BgScript.instance.Audio.Play();
+          }
+        }
       }
 
     void Update()
@@ -71,7 +73,7 @@ public class Scenes : MonoBehaviour
     IEnumerator Transition(int scene)
     {
       transitionAnim.SetTrigger("end");
-      SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.click);
+        SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.click);    
       yield return new WaitForSeconds(waitTime);
       SceneManager.LoadSceneAsync(scene);
     }

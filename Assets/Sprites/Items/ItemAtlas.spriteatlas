@@ -44,7 +44,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: bb5b24d957ea76a4faf372297dd0339d, type: 3}
-    totalSpriteSurfaceArea: 5119196
+    totalSpriteSurfaceArea: 5119772
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -229,6 +229,7 @@ SpriteAtlas:
   - {fileID: -6466745988157693276, guid: 9610d39e6690c2b44806efe61a0d976d, type: 3}
   - {fileID: 6024717204825164481, guid: 930a4b9ed9824ae419f5b80e44a337ba, type: 3}
   - {fileID: 1875917246518206917, guid: 930a4b9ed9824ae419f5b80e44a337ba, type: 3}
+  - {fileID: 21300000, guid: 63f8ce0f170462947b863aaeaf609cfc, type: 3}
   - {fileID: 909454856004693264, guid: a84c1b5faf102b040bee65eea331fda8, type: 3}
   - {fileID: -4399668622466187505, guid: a84c1b5faf102b040bee65eea331fda8, type: 3}
   - {fileID: 9114118696120712740, guid: 323d636fa53e3bc4eaa651bc08737a02, type: 3}
@@ -420,6 +421,7 @@ SpriteAtlas:
   - player_notholding_walk_1
   - radio_1
   - radio_0
+  - manager
   - back_button_0
   - back_button_1
   - checkbox_1

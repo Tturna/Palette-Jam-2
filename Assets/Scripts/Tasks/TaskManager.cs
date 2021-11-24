@@ -29,7 +29,7 @@ public class TaskManager : MonoBehaviour
 
     public Task currentTask;
     [HideInInspector] public int tasksDone;
-    [HideInInspector] public int totalTasks;
+    public int totalTasks;
     [SerializeField] GameObject Office;
     int numOfTimesPrinterUsed = 0;
 
@@ -178,8 +178,7 @@ public class TaskManager : MonoBehaviour
         else if (target.GetComponent<Interactable>().name == "Tap")
         {
             // Don't leave the tap running done
-            TaskDone("Don't leave the tap running");
-            Office.GetComponent<Animator>().Play("Tap");
+            TaskDone("Don't leave the tap running"); Office.GetComponent<Animator>().Play("Tap");
         }
         else if (target.GetComponent<Interactable>().name == "Elevator")
         {

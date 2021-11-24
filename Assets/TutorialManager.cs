@@ -7,7 +7,6 @@ public class TutorialManager : MonoBehaviour
 {
     bool tutorialDone;
 
-    public GameObject Prompt;
     public GameObject anotherPrompt;
     public Sprite InteractSprite;
     public Sprite highlightSprite;
@@ -28,14 +27,6 @@ public class TutorialManager : MonoBehaviour
         tutorialDone = false;
     }
 
-    void Update()
-    {
-        if ((Vector2)Prompt.transform.position - (Vector2)GameObject.FindGameObjectWithTag("Player").transform.position).magnitude < 5)
-        {
-            Prompt.SetActive(true);
-        }
-    }
-
     void OnInteract(GameObject target)
     {
         if (target.GetComponent<Interactable>().name == "Radio")
@@ -43,19 +34,21 @@ public class TutorialManager : MonoBehaviour
             Debug.Log("Play Loud Music Done");
             BgScript.instance.Audio.clip = BgScript.instance.gameplayMusic;
             BgScript.instance.Audio.Play();
-            tutorialDone = true;
             Camera.main.GetComponent<CameraFollow>().followSpeed = 1f;
-            anotherPrompt.GetComponent<SpriteRenderer>().sprite = upArrow;
+            anotherPrompt.transform.position = transform.position;
             target.GetComponent<SpriteRenderer>().sprite = radio;
+            int rand = Random.Range(0,SfxManager.instance.WinSounds.Count);
+            SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.WinSounds[rand]);
         }
 
         if (target.GetComponent<Interactable>().name == "Door")
         {
             target.GetComponent<Animator>().Play("Door");
+            tutorialDone = true;
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player" && tutorialDone)
         {

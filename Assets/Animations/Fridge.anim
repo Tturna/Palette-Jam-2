@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -1051931979826116527, guid: efa7a5cf55a36114ea12fffda2e9c560, type: 3}
+      value: {fileID: 5739897283171119737, guid: efa7a5cf55a36114ea12fffda2e9c560, type: 3}
     - time: 0.25
       value: {fileID: -1051931979826116527, guid: efa7a5cf55a36114ea12fffda2e9c560, type: 3}
     attribute: m_Sprite
-    path: Interactable Fridge
+    path: Fridge_Interactable
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -35,14 +35,14 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 626148173
+      path: 4246310896
       attribute: 0
       script: {fileID: 0}
       typeID: 212
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -1051931979826116527, guid: efa7a5cf55a36114ea12fffda2e9c560, type: 3}
+    - {fileID: 5739897283171119737, guid: efa7a5cf55a36114ea12fffda2e9c560, type: 3}
     - {fileID: -1051931979826116527, guid: efa7a5cf55a36114ea12fffda2e9c560, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2

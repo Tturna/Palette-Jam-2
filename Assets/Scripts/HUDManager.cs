@@ -8,6 +8,7 @@ public class HUDManager : MonoBehaviour
     public Text tasksDoneCounter;
     public Text currentRuleText;
     public int tasksDone;
+    public int tasksTodo;
     public TaskManager taskManager;
     public Animator CrossOutAnimation;
     public static HUDManager instance;
@@ -17,16 +18,18 @@ public class HUDManager : MonoBehaviour
         taskManager = GameObject.FindObjectOfType<TaskManager>();
         instance = this;
         currentRuleText.text = taskManager.currentTask.name;
+        tasksTodo = taskManager.totalTasks;
     }
 
     void Update()
     {
         tasksDone = taskManager.tasksDone;
-        tasksDoneCounter.text = "(" + tasksDone + "/" + taskManager.totalTasks + ")";
+        tasksDoneCounter.text = "(" + tasksDone + "/" + tasksTodo + ")";
     }
 
     public IEnumerator RuleBreak(float breakTime)
     {
+        tasksTodo = taskManager.totalTasks;
         CrossOutAnimation.Play("RuleBreak");
         yield return new WaitForSeconds(breakTime);
         currentRuleText.text = taskManager.currentTask.name;
