@@ -44,7 +44,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: bb5b24d957ea76a4faf372297dd0339d, type: 3}
-    totalSpriteSurfaceArea: 5648972
+    totalSpriteSurfaceArea: 5119196
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -83,7 +83,6 @@ SpriteAtlas:
   - {fileID: 9087207327684497215, guid: 87285c54f551ed446aaa0a2941859d6d, type: 3}
   - {fileID: 21300000, guid: 727df994910e95548b1c103f79725583, type: 3}
   - {fileID: 21300000, guid: 7ea85e941e268244ab382d351cdb9bdb, type: 3}
-  - {fileID: 21300000, guid: 01ec69d4eda1f644eb1585dcb8eda059, type: 3}
   - {fileID: 21300000, guid: 461298155828402479e1fb121cbc96be, type: 3}
   - {fileID: -9188735870274128386, guid: 233d727511c12dd43a5244eea2a28d81, type: 3}
   - {fileID: -5411387370984962221, guid: 233d727511c12dd43a5244eea2a28d81, type: 3}
@@ -275,7 +274,6 @@ SpriteAtlas:
   - door_open_0
   - ground_tile
   - options_button
-  - unknown
   - desk
   - tv_on-Sheet_13
   - tv_on-Sheet_12

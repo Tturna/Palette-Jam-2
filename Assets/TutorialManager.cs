@@ -28,6 +28,14 @@ public class TutorialManager : MonoBehaviour
         tutorialDone = false;
     }
 
+    void Update()
+    {
+        if ((Vector2)Prompt.transform.position - (Vector2)GameObject.FindGameObjectWithTag("Player").transform.position).magnitude < 5)
+        {
+            Prompt.SetActive(true);
+        }
+    }
+
     void OnInteract(GameObject target)
     {
         if (target.GetComponent<Interactable>().name == "Radio")
