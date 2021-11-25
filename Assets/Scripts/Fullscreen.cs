@@ -1,15 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Fullscreen : MonoBehaviour
 {
     public bool fullscreen;
-    
-    void Start()
-    {
-        fullscreen = true;
-    }
 
     public void SetFullscreen(bool isFullscreen)
     {

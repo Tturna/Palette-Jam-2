@@ -1808,6 +1808,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3450404520800462125, guid: 41059e66ce0d84e4f8e373068273bfb0, type: 3}
+      propertyPath: speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450404520800462125, guid: 41059e66ce0d84e4f8e373068273bfb0, type: 3}
+      propertyPath: sprintSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3450404520800462126, guid: 41059e66ce0d84e4f8e373068273bfb0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -18808,7 +18816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10f16973d8abd214a878c61b2ea637ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 0.1
+  delay: 0.05
   fullText: 'Congratulations!  You Have Broken Every Rule There Is And Totally Destroyed
     This Place. Awesome! '
   currentText: 
