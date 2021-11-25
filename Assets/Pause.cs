@@ -18,11 +18,13 @@ public class Pause : MonoBehaviour
     {
         Time.timeScale = 0f;
         pauseScreen.SetActive(true);
+        SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.click);
     }
 
     public void ResumeGame()
     {
         Time.timeScale = 1f;
         pauseScreen.SetActive(false);
+        SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.click);
     }
 }

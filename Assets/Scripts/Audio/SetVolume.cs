@@ -43,7 +43,7 @@ public class SetVolume : MonoBehaviour
         mixer.SetFloat(mixerExposedVolName, Mathf.Log10(sliderValue) * 20);
         if(music == true)
         {
-           PlayerPrefs.SetFloat("MusicVolume", sliderValue); 
+           PlayerPrefs.SetFloat("MusicVolume", sliderValue);
         }else
         {
             PlayerPrefs.SetFloat("SFXVolume", sliderValue);

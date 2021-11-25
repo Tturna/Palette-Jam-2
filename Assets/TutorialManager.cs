@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class TutorialManager : MonoBehaviour
 {
-    bool tutorialDone;
+    int tutorialDone;
 
     public GameObject anotherPrompt;
     public Sprite InteractSprite;
@@ -15,7 +15,7 @@ public class TutorialManager : MonoBehaviour
     public Sprite radio;
 
 
-    void Start()
+    void Awake()
     {
         Interactable[] inter = FindObjectsOfType<Interactable>();
 
@@ -24,7 +24,22 @@ public class TutorialManager : MonoBehaviour
             inter[i].OnInteract += OnInteract;
         }
 
-        tutorialDone = false;
+        if (PlayerPrefs.HasKey("tutorial"))
+        {
+            tutorialDone = PlayerPrefs.GetInt("tutorial");
+        }else
+        {
+            PlayerPrefs.SetInt("tutorial", 0);
+            tutorialDone = PlayerPrefs.GetInt("tutorial");
+        }
+    }
+
+    void Start()
+    {
+        if (tutorialDone == 1)
+        {
+            SceneManager.LoadScene("GameScene");
+        }
     }
 
     void OnInteract(GameObject target)
@@ -35,7 +50,6 @@ public class TutorialManager : MonoBehaviour
             BgScript.instance.Audio.clip = BgScript.instance.gameplayMusic;
             BgScript.instance.Audio.Play();
             Camera.main.GetComponent<CameraFollow>().followSpeed = 1f;
-            anotherPrompt.transform.position = transform.position;
             target.GetComponent<SpriteRenderer>().sprite = radio;
             int rand = Random.Range(0,SfxManager.instance.WinSounds.Count);
             SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.WinSounds[rand]);
@@ -44,13 +58,20 @@ public class TutorialManager : MonoBehaviour
         if (target.GetComponent<Interactable>().name == "Door")
         {
             target.GetComponent<Animator>().Play("Door");
-            tutorialDone = true;
+            StartCoroutine(TutorialDone());
         }
     }
 
-    void OnTriggerStay2D(Collider2D other)
+    IEnumerator TutorialDone()
     {
-        if (other.tag == "Player" && tutorialDone)
+        yield return new WaitForSeconds(1f);
+        PlayerPrefs.SetInt("tutorial", 1);
+        tutorialDone = PlayerPrefs.GetInt("tutorial");
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player" && tutorialDone == 1)
         {
             SceneManager.LoadScene("GameScene");
         }

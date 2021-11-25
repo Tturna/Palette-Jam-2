@@ -16,5 +16,6 @@ public class Fullscreen : MonoBehaviour
         Screen.fullScreen = isFullscreen;
         Debug.Log("Fullscreen" + ": " + isFullscreen);
         fullscreen = isFullscreen;
+        SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.click);
     }
 }

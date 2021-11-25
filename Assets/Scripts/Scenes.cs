@@ -49,6 +49,7 @@ public class Scenes : MonoBehaviour
 
     public void SelectScene(string sceneName)
     {
+      SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.click);
       StartCoroutine(TransitionForParticularScene(sceneName));
     }
 
@@ -73,7 +74,6 @@ public class Scenes : MonoBehaviour
     IEnumerator Transition(int scene)
     {
       transitionAnim.SetTrigger("end");
-        SfxManager.instance.Audio.PlayOneShot(SfxManager.instance.click);    
       yield return new WaitForSeconds(waitTime);
       SceneManager.LoadSceneAsync(scene);
     }

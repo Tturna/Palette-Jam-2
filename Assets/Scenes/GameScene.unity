@@ -5635,7 +5635,7 @@ MonoBehaviour:
   currentRuleText: {fileID: 2106179259}
   tasksDone: 0
   tasksTodo: 0
-  taskManager: {fileID: 0}
+  taskManager: {fileID: 569356351}
   CrossOutAnimation: {fileID: 1094347439}
 --- !u!114 &1094347441
 MonoBehaviour:
